@@ -1,9 +1,10 @@
 class Organization {
 
-    constructor(n, d, c, a, mod, mem, e, p) {
+    constructor(n, d, i, c, a, mod, mem, e, p) {
         if (arguments.length == 0) {
             this.name = null;
             this.description = null;
+            this.icon = null;
 
             this.creator = null;
             this.admins = [];
@@ -15,6 +16,7 @@ class Organization {
         }else if (arguments.length == 2) {
             this.name = n;
             this.description = d;
+            this.icon = null;
 
             this.creator = c;
             this.admins = [];
@@ -26,6 +28,7 @@ class Organization {
         }else {
             this.name = n;
             this.description = d;
+            this.icon = i;
 
             this.creator = c;
             this.admins = a;
@@ -44,6 +47,10 @@ class Organization {
 
     setDescription(description) {
         this.description = description;
+    }
+
+    setIcon(icon) {
+        this.icon = icon;
     }
 
     setCreator(creator) {
@@ -77,6 +84,10 @@ class Organization {
 
     getDescription() {
         return this.description;
+    }
+
+    getIcon() {
+        return this.icon;
     }
 
     getCreator() {

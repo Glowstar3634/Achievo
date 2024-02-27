@@ -1,6 +1,6 @@
 class Profile {
 
-    constructor(u, e, pw, fn, ln, a, g, b, pfp, s, port, web, res, fri, pos, gal, cser, awa, org) {
+    constructor(u, e, pw, fn, ln, a, g, b, pfp, s, port, web, res, fri, pos, gal, aca, cser, awa, org) {
         if (arguments.length == 0) {
             this.username = null;
             this.email = null;
@@ -21,6 +21,7 @@ class Profile {
             this.friends = [];
             this.posts = [];
             this.gallery = [];
+            this.academics = [];
             this.cservice = [];
             this.awards = [];
             this.organizations = [];
@@ -45,6 +46,7 @@ class Profile {
             this.friends = [];
             this.posts = [];
             this.gallery = [];
+            this.academics = [];
             this.cservice = [];
             this.awards = [];
             this.organizations = [];
@@ -68,6 +70,7 @@ class Profile {
             this.friends = fri;
             this.posts = pos;
             this.gallery = gal;
+            this.academics = aca;
             this.cservice = cser;
             this.awards = awa;
             this.organizations = org;
@@ -137,6 +140,10 @@ class Profile {
 
     setGallery(gallery) {
         this.gallery = gallery;
+    }
+
+    setAcademics(academics) {
+        this.academics = academics;
     }
 
     setCservice(cservice) {
@@ -214,6 +221,10 @@ class Profile {
 
     getGallery() {
         return this.gallery;
+    }
+
+    getAcademics() {
+        return this.academics;
     }
 
     getCservice() {
