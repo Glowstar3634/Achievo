@@ -107,9 +107,9 @@ const styles = StyleSheet.create({
         backgroundColor:'#9DC0DD'
     },
     screenHeader:{
-        fontSize: 35,
-        marginTop: 40,
-        color: 'black',
+        fontSize: 40,
+        marginTop: 10,
+        color: 'white',
         width:'100%',
         textAlign: 'center',
         fontWeight: 'bold',
@@ -133,6 +133,16 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         marginRight:-50
     },
+    screenBio:{
+        fontSize: 18,
+        margin: 10,
+        fontStyle: 'italic',
+        color: 'white',
+        width:'80%',
+        alignSelf: 'center',
+        textAlign: 'center',
+        alignItems:'center',
+    },
     orgBlock:{
         height: 100,
         alignItems: 'center',
@@ -141,6 +151,24 @@ const styles = StyleSheet.create({
         width:'85%',
         borderRadius: 20,
         backgroundColor:COLORS.lightGray,
+        margin:10,
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowRadius: 5,
+        shadowOpacity: 1.0
+    },
+    clubBlock:{
+        height: 135,
+        alignItems: 'center',
+        alignSelf:"center",
+        justifyContent: 'flex-start',
+        flexDirection: "row",
+        width:'95%',
+        borderRadius: 25,
+        backgroundColor:COLORS.dark2,
         margin:10,
         shadowColor: '#000000',
         shadowOffset: {
@@ -159,14 +187,16 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         alignItems:'center'
     },
-    orgBlockHeader2:{
+    clubBlockHeader:{
         fontSize: 22,
-        marginTop: 5,
-        color: 'black',
+        margin: 15,
+        marginTop: 25,
+        color: 'white',
         fontWeight:'bold',
-        width:'90%',
+        width:250,
         textAlign: 'left',
-        alignItems:'center'
+        alignItems:'center',
+        alignSelf: 'flex-start'
     },
     orgBlockSubHeader:{
         fontSize: 25,

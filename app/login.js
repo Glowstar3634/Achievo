@@ -88,7 +88,7 @@ const LoginScreen = () => {
         
         <View style={{marginBottom:20, marginLeft:-30, marginRight: -30,}}>
         <Text style={styles.startInputHint}>Password:</Text>
-        <View style={styles.startInputAreaa}>
+        <View style={styles.startInputArea}>
           <TextInput 
             style={styles.startInput}
             onChangeText={passwordInput => onPasswordUpdate(passwordInput)}

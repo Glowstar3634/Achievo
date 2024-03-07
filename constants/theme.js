@@ -3,11 +3,13 @@ const COLORS = {
   secondary: "#70c299",
   tertiary: "#FF7754",
   gray: "#83829A",
-  gray2: "#C1C0C8",
+  gray2: "#4D4C4C",
 
-  dark: "#333333",
+  dark: "#1c1d21",
+  dark1: "#141417",
+  dark2: "#2e2e2e",
 
-  light:"#CDCDCD",
+  light:"#626161",
 
   white: "#F3F4F8",
   black: "#FF000000",

@@ -9,6 +9,11 @@ import SignUpScreen from "./signup";
 import Start from "./start";
 import LoginScreen from "./login";
 import HomeScreen from "./home";
+import ClubsScreen from "./clubs";
+import AcademicsScreen from "./academics";
+import ArtsScreen from "./arts";
+import AthleticsScreen from "./athletics";
+import ServiceScreen from "./service";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +27,11 @@ const index = () => {
         <Stack.Screen name="login" component={LoginScreen} />
         <Stack.Screen name="signup" component={SignUpScreen} />
         <Stack.Screen name="home" component={HomeScreen} />
+        <Stack.Screen name="clubs" component={ClubsScreen} />
+        <Stack.Screen name="academics" component={AcademicsScreen} />
+        <Stack.Screen name="arts" component={ArtsScreen} />
+        <Stack.Screen name="athletics" component={AthleticsScreen} />
+        <Stack.Screen name="service" component={ServiceScreen} />
       </Stack.Navigator>
   );
 };
