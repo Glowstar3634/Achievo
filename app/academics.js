@@ -74,7 +74,7 @@ const AcademicsScreen = () => {
 
     </View>
     <View elevation={5} style={[styles.clubBlock, {flexDirection: 'column' , justifyContent: "space-around",height: 100,borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={[styles.clubBlockHeader, {margin:0, marginTop:0,width:'100%', fontSize: 22, textAlign: 'center'}]}>Transcript</Text>
+      <Text style={[styles.clubBlockHeader, {margin:0, marginTop:0,width:'100%', fontSize: 30, textAlign: 'center'}]}>Transcript</Text>
       <TouchableOpacity
           style={{
             height:45,
@@ -120,7 +120,7 @@ const AcademicsScreen = () => {
         <Image
             style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
             tintColor={COLORS.white}
-            source={require('../constants/images/UIcons/theater-masks-2815.png')}
+            source={require('../constants/images/UIcons/music-note.png')}
         />
         </TouchableOpacity>
         <TouchableOpacity style={[styles.safeContain, {width:'15%', margin:6}]} onPress={() => navigation.navigate("Athletics")}>

@@ -11,6 +11,7 @@ import ArtsScreen from "./app/arts";
 import AthleticsScreen from "./app/athletics";
 import ServiceScreen from "./app/service";
 import { registerRootComponent } from 'expo';
+import tsa from "./app/tsa";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ export default function App() {
         <Stack.Screen name="Arts" component={ArtsScreen} />
         <Stack.Screen name="Athletics" component={AthleticsScreen} />
         <Stack.Screen name="Service" component={ServiceScreen} />
+        <Stack.Screen name="TSA" component={tsa} />
       </Stack.Navigator>
     </NavigationContainer>
     

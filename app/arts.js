@@ -1,17 +1,26 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ScrollView} from 'react-native'
+import { SafeAreaView, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ScrollView, Modal} from 'react-native'
 import styles from '../constants/styles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { COLORS } from '../constants/theme';
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, {useState } from 'react';
+import { useNavigation} from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 const ArtsScreen = () => {
   const navigation = useNavigation();
   var name = "Ethan Poon";
   const [orgSearch, onOrgUpdate] = React.useState('');
   const [passwordInput, onPasswordUpdate] = React.useState('');
+  const [showDescriptions, setShowDescriptions] = useState({});
 
+  const toggleDescription = (descriptionIndex) => {
+  setShowDescriptions(prevState => ({
+    ...prevState,
+    [descriptionIndex]: !prevState[descriptionIndex]
+  }));
+};
+  
   return (
     <SafeAreaView style={{
       flex:1,
@@ -43,36 +52,83 @@ const ArtsScreen = () => {
     <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start'}}>
 
     <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={styles.clubBlockHeader}>Music: Concert Violin</Text>
+    
+      <Text style={styles.clubBlockHeader}>Music: Concert Violin {'\n\n\n'}
+      
+    </Text>
+      
       <Image
-        style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
+        style={{width:115, height:115, margin:-15,borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/Violin_PNG_Clipart-899.png')}
         />
+
     </View>
+    <View style={styles.container}>
+            <TouchableOpacity onPress={() => toggleDescription(1)}>
+              <View style={styles.triangleDown}></View>
+            </TouchableOpacity>
+            {showDescriptions[1] && (
+              <View style={styles.descriptionBox}>
+                <Text style={{color: 'white', fontWeight:'bold'}}>Description 1...</Text>
+              </View>
+            )}
+          </View>
+
 
     <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={styles.clubBlockHeader}>Drama: Theater Playwriting and directing</Text>
+      <Text style={styles.clubBlockHeader}>Drama: Theater Playwriting and Directing</Text>
       <Image
-        style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
+        style={{width:115, height:115, margin:-15,borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/Gold_Theater_Masks_PNG_Clipart_Image.png')}
         />
     </View>
 
+    <View style={styles.container}>
+            <TouchableOpacity onPress={() => toggleDescription(2)}>
+              <View style={styles.triangleDown}></View>
+            </TouchableOpacity>
+            {showDescriptions[2] && (
+              <View style={styles.descriptionBox}>
+                <Text style={{color: 'white', fontWeight:'bold'}}>Description 2...</Text>
+              </View>
+            )}
+          </View>
+
     <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={styles.clubBlockHeader}>Dance: Classical Ballet</Text>
       <Image
-        style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
+        style={{width:100, height:100, marginRight:30, margin:-15,borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/ballet.png')}
         />
     </View>
+    <View style={styles.container}>
+            <TouchableOpacity onPress={() => toggleDescription(3)}>
+              <View style={styles.triangleDown}></View>
+            </TouchableOpacity>
+            {showDescriptions[3] && (
+              <View style={styles.descriptionBox}>
+                <Text style={{color: 'white', fontWeight:'bold'}}>Description 3...</Text>
+              </View>
+            )}
+          </View>
 
     <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={styles.clubBlockHeader}>Craft: Painting</Text>
       <Image
-        style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
+        style={{width:115, height:115, borderRadius:30, margin:-15,resizeMode:'contain'}}
         source={require('../constants/images/UIcons/paint_palette.png')}
         />
     </View>
+    <View style={styles.container}>
+            <TouchableOpacity onPress={() => toggleDescription(4)}>
+              <View style={styles.triangleDown}></View>
+            </TouchableOpacity>
+            {showDescriptions[4] && (
+              <View style={styles.descriptionBox}>
+                <Text style={{color: 'white', fontWeight:'bold'}}>Description 4...</Text>
+              </View>
+            )}
+          </View>
 
     </ScrollView>
 
@@ -104,7 +160,7 @@ const ArtsScreen = () => {
         <Image
             style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
             tintColor={COLORS.white}
-            source={require('../constants/images/UIcons/theater-masks-2815.png')}
+            source={require('../constants/images/UIcons/music-note.png')}
         />
         </TouchableOpacity>
         <TouchableOpacity style={[styles.safeContain, {width:'15%', margin:6}]} onPress={() => navigation.navigate("Athletics")}>
