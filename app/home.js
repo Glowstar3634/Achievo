@@ -27,7 +27,7 @@ const HomeScreen = () => {
 
 
     <View style={[{
-          height:60, 
+          height:80, 
           margin:5,
           alignSelf: 'center',
           borderRadius: 30,
@@ -36,27 +36,43 @@ const HomeScreen = () => {
           justifyContent:'space-around',
           backgroundColor: COLORS.dark
         }, styles.sectionShadow]}>
+        <View style={{height:100}}>
+        <ScrollView horizontal={true} contentContainerstyle={styles.top}>
+
+        <View style={{height:60, marginRight:20}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2, width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate('Clubs')}>
         <Image
-            style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
+            style={{  width: '60%', height: '85%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
             tintColor={COLORS.white}
             source={require('../constants/images/UIcons/users-267.png')}
         />
         </TouchableOpacity>
+        <Text style={styles.undericon}>CLUBS</Text>
+        </View>
+
+        <View style={{height:60, marginRight:20}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2, width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate('Academics')}>
         <Image
-            style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
+            style={{  width: '70%', height: '90%', alignSelf:"center",margin: 3, resizeMode:'contain', marginBottom:40}}
             tintColor={COLORS.white}
             source={require('../constants/images/UIcons/education-graduate-black-21080.png')}
         />
         </TouchableOpacity>
+        <Text style={styles.undericon}>ACADEMICS</Text>
+        </View>
+
+        <View style={{height:60, marginRight:20}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2 ,width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate("Arts")}>
         <Image
-            style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
+            style={{  width: '60%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
             tintColor={COLORS.white}
-            source={require('../constants/images/UIcons/theater-masks-2815.png')}
+            source={require('../constants/images/UIcons/music-note.png')}
         />
         </TouchableOpacity>
+        <Text style={styles.undericon}>ARTS</Text>
+        </View>
+
+        <View style={{height:60, marginRight:20}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2, width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate("Athletics")}>
         <Image
             style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
@@ -64,6 +80,10 @@ const HomeScreen = () => {
             source={require('../constants/images/UIcons/running-shoes-8592.png')}
         />
         </TouchableOpacity>
+        <Text style={styles.undericon}>ATHLETICS</Text>
+        </View>
+
+        <View style={{height:60, marginRight:20}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2, width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate("Service")}>
         <Image
             style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
@@ -71,6 +91,11 @@ const HomeScreen = () => {
             source={require('../constants/images/UIcons/black-grow-plant-17106.png')}
         />
         </TouchableOpacity>
+        <Text style={styles.undericon}>SERVICE</Text>
+        </View>
+
+        </ScrollView>
+        </View>
       </View>
 
 
@@ -80,7 +105,7 @@ const HomeScreen = () => {
     <TextInput
         style={{width: 300, height: 40, backgroundColor: COLORS.dark2, borderRadius: 20, paddingHorizontal: 20, height:50, width:370, marginLeft:20, marginBottom:-133, marginTop:10}} // Example styling for TextInput
         placeholder="Search people, organizations, etc..." // Placeholder text
-        placeholderTextColor={COLORS.gray2}
+        placeholderTextColor={'white'}
         // Add any other TextInput props you need
         />
         <View style={{width:55,height:55,backgroundColor:COLORS.secondary, borderRadius:12, marginTop:80, marginLeft:340}}>

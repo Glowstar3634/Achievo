@@ -5,6 +5,9 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 const styles = StyleSheet.create({
     container: {
         width: "100%",
+        marginTop:-40,
+        marginLeft:70,
+        marginBottom:20
     },
     safeContain:{
         alignContent:'center',
@@ -18,6 +21,28 @@ const styles = StyleSheet.create({
         width:'90%',
         borderRadius: 15,
     },
+    triangleDown: {
+        width: 0,
+        height: 0,
+        borderLeftWidth: 10,
+        borderRightWidth: 10,
+        borderBottomWidth: 15,
+        borderStyle: 'solid',
+        backgroundColor: 'transparent',
+        borderLeftColor: 'transparent',
+        borderRightColor: 'transparent',
+        borderBottomColor: 'white',
+      },
+      descriptionBox: {
+        backgroundColor:COLORS.dark2,
+        padding: 10,
+        marginTop: 13,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 20,
+        marginLeft:-25,
+        marginRight:45
+      },
     buttonText: {
       fontSize: 25,
       fontWeight:'bold',
@@ -78,6 +103,18 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         backgroundColor: COLORS.light,
         backgroundColor:'#A7D1BC',
+    },
+    startInputArea3: {
+        height:50,
+        alignItems: 'center',
+        alignSelf:"center",
+        justifyContent: 'center',
+        width:'70%',
+        marginTop:10,
+        height:55,
+        borderRadius: 20,
+        backgroundColor: COLORS.light,
+        backgroundColor:'#9DC0DD',
     },
     startInputArea2: {
         height:80,
@@ -190,13 +227,13 @@ const styles = StyleSheet.create({
     clubBlockHeader:{
         fontSize: 22,
         margin: 15,
-        marginTop: 25,
+        marginTop: 40,
         color: 'white',
         fontWeight:'bold',
         width:250,
         textAlign: 'left',
         alignItems:'center',
-        alignSelf: 'flex-start'
+        alignSelf: 'flex-start',
     },
     orgBlockSubHeader:{
         fontSize: 25,
@@ -205,6 +242,16 @@ const styles = StyleSheet.create({
         width:'90%',
         textAlign: 'left',
         alignItems:'center'
+    },
+    top:{
+        flexDirection: 'row', // Horizontal scrolling
+        alignItems: 'center', // Align items in the center horizontally
+        height: 700, // Adjust the height as needed
+    },
+    undericon:{
+        color:'white',
+        alignItems:'center',
+        textAlign: 'center',
     }
 });
 

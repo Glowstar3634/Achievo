@@ -57,8 +57,8 @@ const AcademicsScreen = () => {
     </View>
 
     <View elevation={5} style={[styles.clubBlock, {flexDirection: 'column' , height: 180, borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={[styles.clubBlockHeader, {width:150, fontSize: 15, textAlign: 'center'}]}>Standardized Tests:</Text>
-      <Text style={[styles.clubBlockHeader, {width:175, margin:5, textAlign: 'center', marginTop:0, color: COLORS.primary}]}>SAT: 1590{'\n'}ACT: N/A{'\n'}AP Tests: 12</Text>
+      <Text style={[styles.clubBlockHeader, {width:150, fontSize: 22, textAlign: 'center', marginTop:15}]}>Standardized Tests:</Text>
+      <Text style={[styles.clubBlockHeader, {width:175, margin:5, marginTop:0, marginLeft:10,color: 'white'}]}>SAT: 1590{'\n'}ACT: N/A{'\n'}AP Tests: 12</Text>
     </View>
       </View>
       <View style={{
@@ -68,13 +68,13 @@ const AcademicsScreen = () => {
       }}>
       <View elevation={5} style={[styles.clubBlock, {flexDirection: 'column' ,height: 380, borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={[styles.clubBlockHeader, {width:150, fontSize: 22, textAlign: 'center'}]}>Past Coursework:</Text>
-      <Text style={[styles.clubBlockHeader, {width:175, margin:5, textAlign: 'center', marginTop:0, color: COLORS.tertiary}]}>AP:{'\n'}12 Classes{'\n\n'}IB:{'\n'}5 Classes{'\n\n'}Dual Enrollment:{'\n'}2 Classes</Text>
+      <Text style={[styles.clubBlockHeader, {width:175, margin:8, marginTop:15, marginLeft:10,color: 'white'}]}>AP:{'\n'}12 Classes{'\n\n'}IB:{'\n'}5 Classes{'\n\n'}Dual Enrollment:{'\n'}2 Classes</Text>
     </View>
       </View>
 
     </View>
     <View elevation={5} style={[styles.clubBlock, {flexDirection: 'column' , justifyContent: "space-around",height: 100,borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={[styles.clubBlockHeader, {margin:0, marginTop:0,width:'100%', fontSize: 22, textAlign: 'center'}]}>Transcript</Text>
+      <Text style={[styles.clubBlockHeader, {margin:0, marginTop:0,width:'100%', fontSize: 30, textAlign: 'center'}]}>Transcript</Text>
       <TouchableOpacity
           style={{
             height:45,
@@ -120,7 +120,7 @@ const AcademicsScreen = () => {
         <Image
             style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
             tintColor={COLORS.white}
-            source={require('../constants/images/UIcons/theater-masks-2815.png')}
+            source={require('../constants/images/UIcons/music-note.png')}
         />
         </TouchableOpacity>
         <TouchableOpacity style={[styles.safeContain, {width:'15%', margin:6}]} onPress={() => navigation.navigate("Athletics")}>

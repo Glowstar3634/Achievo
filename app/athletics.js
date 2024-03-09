@@ -95,7 +95,7 @@ const AthleticsScreen = () => {
         <Image
             style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
             tintColor={COLORS.white}
-            source={require('../constants/images/UIcons/theater-masks-2815.png')}
+            source={require('../constants/images/UIcons/music-note.png')}
         />
         </TouchableOpacity>
         <TouchableOpacity style={[styles.safeContain, {width:'15%', margin:6}]} onPress={() => navigation.navigate("Athletics")}>
