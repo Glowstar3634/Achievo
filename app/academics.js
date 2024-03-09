@@ -52,13 +52,13 @@ const AcademicsScreen = () => {
       }}>
       <View elevation={5} style={[styles.clubBlock, {flexDirection: 'column' ,height: 180, borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={[styles.clubBlockHeader, {width:150, textAlign: 'center'}]}>Current GPA:</Text>
-      <Text style={[styles.clubBlockHeader, {width:175, margin:5, textAlign: 'center', marginTop:0, color: COLORS.secondary}]}>3.98 / 4.0 UW{'\n'}4.60 / 4.0 W{'\n'}Class Rank: 10%</Text>
+      <Text style={[styles.clubBlockHeader, {width:175, margin:5, textAlign: 'center', marginTop:0, color: COLORS.white}]}>3.98 / 4.0 UW{'\n'}4.60 / 4.0 W{'\n'}Class Rank: 10%</Text>
 
     </View>
 
     <View elevation={5} style={[styles.clubBlock, {flexDirection: 'column' , height: 180, borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={[styles.clubBlockHeader, {width:150, fontSize: 15, textAlign: 'center'}]}>Standardized Tests:</Text>
-      <Text style={[styles.clubBlockHeader, {width:175, margin:5, textAlign: 'center', marginTop:0, color: COLORS.primary}]}>SAT: 1590{'\n'}ACT: N/A{'\n'}AP Tests: 12</Text>
+      <Text style={[styles.clubBlockHeader, {width:175, margin:5, textAlign: 'center', marginTop:0, color: COLORS.white}]}>SAT: 1590{'\n'}ACT: N/A{'\n'}AP Tests: 12</Text>
     </View>
       </View>
       <View style={{
@@ -68,7 +68,7 @@ const AcademicsScreen = () => {
       }}>
       <View elevation={5} style={[styles.clubBlock, {flexDirection: 'column' ,height: 380, borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={[styles.clubBlockHeader, {width:150, fontSize: 22, textAlign: 'center'}]}>Past Coursework:</Text>
-      <Text style={[styles.clubBlockHeader, {width:175, margin:5, textAlign: 'center', marginTop:0, color: COLORS.tertiary}]}>AP:{'\n'}12 Classes{'\n\n'}IB:{'\n'}5 Classes{'\n\n'}Dual Enrollment:{'\n'}2 Classes</Text>
+      <Text style={[styles.clubBlockHeader, {width:175, margin:5, textAlign: 'center', marginTop:0, color: COLORS.white}]}>AP:{'\n'}12 Classes{'\n\n'}IB:{'\n'}5 Classes{'\n\n'}Dual Enrollment:{'\n'}2 Classes</Text>
     </View>
       </View>
 

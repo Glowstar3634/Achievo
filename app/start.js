@@ -22,7 +22,7 @@ const StartScreen = () => {
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:COLORS.dark
+        backgroundColor:'#343334'
     }}>
         <View style={{
         alignContent:'center',

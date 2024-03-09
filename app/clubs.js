@@ -42,37 +42,38 @@ const ClubsScreen = () => {
     <View style={{flex:6, height: '100%',width: '100%', display:'flex'}}>
     <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start'}}>
 
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={styles.clubBlockHeader}>TSA: Technology Student Association</Text>
-      <Image
-        style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
-        source={require('../constants/images/UIcons/tsa-logoff2c085a4556450589a0a1a426c8e98f.png')}
-        />
-    </View>
-
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]} onPress={() => navigation.navigate("OneClub")}>
       <Text style={styles.clubBlockHeader}>FBLA: Future Business Leaders of America</Text>
       <Image
         style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/FBLA-Crest-FINAL-RGB-01-e1658431231682-300x300.png')}
         />
-    </View>
+    </TouchableOpacity>
 
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+      <Text style={styles.clubBlockHeader}>TSA: Technology Student Association</Text>
+      <Image
+        style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
+        source={require('../constants/images/UIcons/tsa-logoff2c085a4556450589a0a1a426c8e98f.png')}
+        />
+    </TouchableOpacity>
+
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={styles.clubBlockHeader}>GSA: Garden State Attack Volleyball</Text>
       <Image
         style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/GSA-Logo-2019-new.png')}
         />
-    </View>
+    </TouchableOpacity>
 
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={styles.clubBlockHeader}>Revvifi Consulting</Text>
       <Image
         style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/revvifi.png')}
         />
-    </View>
+    </TouchableOpacity>
 
     </ScrollView>
 

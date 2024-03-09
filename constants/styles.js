@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     },
     signUpButton: {
       marginTop: 40,
-      backgroundColor: 'black'
+      backgroundColor: COLORS.primary
     },
     startHeaders:{
         fontSize: 50,

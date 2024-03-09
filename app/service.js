@@ -56,6 +56,10 @@ const ServiceScreen = () => {
     <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start'}}>
     
     <View elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}>
+      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Food Flow</Text>
+    </View>
+
+    <View elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Interact Replenish Food Drive</Text>
     </View>
 
