@@ -41,29 +41,29 @@ const AthleticsScreen = () => {
 
     <View style={{flex:3, height: '100%',width: '100%', display:'flex'}}>
     <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start'}}>
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]} onPress={() => navigation.navigate("Tennis")}>
       <Text style={[styles.clubBlockHeader, {alignSelf:'center'}]}>Tennis</Text>
       <Image
         style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/tennis.png')}
         />
-    </View>
+    </TouchableOpacity>
 
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={[styles.clubBlockHeader, {alignSelf:'center'}]}>Fencing</Text>
       <Image
         style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/fencing.webp')}
         />
-    </View>
+    </TouchableOpacity>
 
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={[styles.clubBlockHeader, {alignSelf:'center'}]}>Soccer</Text>
       <Image
         style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/soccerball.png')}
         />
-    </View>
+    </TouchableOpacity>
 
     </ScrollView>
 

@@ -55,7 +55,25 @@ const handleTSA = () => {
     <View style={{flex:6, height: '100%',width: '100%', display:'flex'}}>
     <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start'}}>
 
-    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2, justifyContent: 'center',alignItems: 'center',}]} onPress={handleTSA}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]} onPress={handleTSA}>
+      <Text style={styles.clubBlockHeader}>FBLA: Future Business Leaders of America</Text>
+      <Image
+        style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
+        source={require('../constants/images/UIcons/FBLA-Crest-FINAL-RGB-01-e1658431231682-300x300.png')}
+        />
+    </TouchableOpacity>
+    <View style={styles.container}>
+            <TouchableOpacity onPress={() => toggleDescription(2)}>
+              <View style={styles.triangleDown}></View>
+            </TouchableOpacity>
+            {showDescriptions[2] && (
+              <View style={styles.descriptionBox}>
+                <Text style={{color: 'white', fontWeight:'bold'}}>The FBLA mission is to bring business and education together in a positive working relationship through innovative leadership and career development programs.</Text>
+              </View>
+            )}
+          </View>
+
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2, justifyContent: 'center',alignItems: 'center',}]}>
       <Text style={styles.clubBlockHeader}>TSA: Technology Student Association</Text>
       <Image
         style={{width:100, height:115, borderRadius:30, resizeMode:'contain'}}
@@ -72,23 +90,7 @@ const handleTSA = () => {
               </View>
             )}
           </View>
-    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={styles.clubBlockHeader}>FBLA: Future Business Leaders of America</Text>
-      <Image
-        style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}
-        source={require('../constants/images/UIcons/FBLA-Crest-FINAL-RGB-01-e1658431231682-300x300.png')}
-        />
-    </TouchableOpacity>
-    <View style={styles.container}>
-            <TouchableOpacity onPress={() => toggleDescription(2)}>
-              <View style={styles.triangleDown}></View>
-            </TouchableOpacity>
-            {showDescriptions[2] && (
-              <View style={styles.descriptionBox}>
-                <Text style={{color: 'white', fontWeight:'bold'}}>Description 2...</Text>
-              </View>
-            )}
-          </View>
+    
     <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={styles.clubBlockHeader}>GSA: Garden State Attack Volleyball</Text>
       <Image
@@ -106,6 +108,7 @@ const handleTSA = () => {
               </View>
             )}
           </View>
+
     <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={styles.clubBlockHeader}>Revvifi Consulting</Text>
       <Image

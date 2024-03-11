@@ -146,6 +146,8 @@ const styles = StyleSheet.create({
     screenHeader:{
         fontSize: 40,
         marginTop: 10,
+        paddingLeft: 10,
+        paddingRight: 10,
         color: 'white',
         width:'100%',
         textAlign: 'center',

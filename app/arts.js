@@ -51,7 +51,7 @@ const ArtsScreen = () => {
     <View style={{flex:6, height: '100%',width: '100%', display:'flex'}}>
     <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start'}}>
 
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]} onPress={() => navigation.navigate('Violin')}>
     
       <Text style={styles.clubBlockHeader}>Music: Concert Violin {'\n\n\n'}
       
@@ -62,7 +62,7 @@ const ArtsScreen = () => {
         source={require('../constants/images/UIcons/Violin_PNG_Clipart-899.png')}
         />
 
-    </View>
+    </TouchableOpacity>
     <View style={styles.container}>
             <TouchableOpacity onPress={() => toggleDescription(1)}>
               <View style={styles.triangleDown}></View>
@@ -75,13 +75,13 @@ const ArtsScreen = () => {
           </View>
 
 
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={styles.clubBlockHeader}>Drama: Theater Playwriting and Directing</Text>
       <Image
         style={{width:115, height:115, margin:-15,borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/Gold_Theater_Masks_PNG_Clipart_Image.png')}
         />
-    </View>
+    </TouchableOpacity>
 
     <View style={styles.container}>
             <TouchableOpacity onPress={() => toggleDescription(2)}>
@@ -94,13 +94,13 @@ const ArtsScreen = () => {
             )}
           </View>
 
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={styles.clubBlockHeader}>Dance: Classical Ballet</Text>
       <Image
         style={{width:100, height:100, marginRight:30, margin:-15,borderRadius:30, resizeMode:'contain'}}
         source={require('../constants/images/UIcons/ballet.png')}
         />
-    </View>
+    </TouchableOpacity>
     <View style={styles.container}>
             <TouchableOpacity onPress={() => toggleDescription(3)}>
               <View style={styles.triangleDown}></View>
@@ -112,13 +112,13 @@ const ArtsScreen = () => {
             )}
           </View>
 
-    <View elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
       <Text style={styles.clubBlockHeader}>Craft: Painting</Text>
       <Image
         style={{width:115, height:115, borderRadius:30, margin:-15,resizeMode:'contain'}}
         source={require('../constants/images/UIcons/paint_palette.png')}
         />
-    </View>
+    </TouchableOpacity>
     <View style={styles.container}>
             <TouchableOpacity onPress={() => toggleDescription(4)}>
               <View style={styles.triangleDown}></View>

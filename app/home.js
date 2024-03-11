@@ -105,8 +105,8 @@ const HomeScreen = () => {
     <TextInput
         style={{width: 300, height: 40, backgroundColor: COLORS.dark2, borderRadius: 20, paddingHorizontal: 20, height:50, width:370, marginLeft:20, marginBottom:-133, marginTop:10}} // Example styling for TextInput
         placeholder="Search people, organizations, etc..." // Placeholder text
-        placeholderTextColor={'white'}
-        // Add any other TextInput props you need
+        placeholderTextColor={COLORS.gray2}
+        color={COLORS.white}
         />
         <View style={{width:55,height:55,backgroundColor:COLORS.secondary, borderRadius:12, marginTop:80, marginLeft:340}}>
         </View>
@@ -133,31 +133,31 @@ const HomeScreen = () => {
     <View style={{flex:1, width:'100%'}}>
     <Text style={[styles.screenHeader, {marginTop: 20, fontSize:25, fontWeight:'normal'}]}>Export your portfolio:</Text>
     
-    <View style={{width:380,height:200,backgroundColor:'#C5D6E4',shadowOffset: {
+    <TouchableOpacity style={{width:380, height:200, backgroundColor:COLORS.dark2,borderColor: COLORS.white, borderWidth:2, borderRadius:10,shadowOffset: {
             width: 0,
             height: 3
         },
         shadowRadius: 5,
         shadowOpacity: 1.0, shadowColor: COLORS.secondary, borderRadius:40,alignItems: 'center',
-        alignSelf:"center",marginTop:10}}>
+        alignSelf:"center",marginTop:10}} onPress= {() => navigation.navigate('ExportOpt')}>
         <Image
-        style={{width:130, height:130, marginRight:240, borderRadius:40, marginTop:10}}
+        style={{width:130, height:130, marginRight:240, borderRadius:40, marginTop:10,borderColor: COLORS.white, borderWidth:2}}
         source={require('../app/pfp.png')}
         />
-        <Text style={{marginLeft:100, fontWeight:'bold', fontSize:30, marginTop:-120, marginRight:30}}>
+        <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:30, marginTop:-120, marginRight:30}}>
           Ethan Poon
         </Text>
-        <Text style={{marginLeft:100, fontWeight:'bold', fontSize:20, marginRight:-40, marginTop:20}}>
+        <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:15, marginRight:-40, marginTop:20}}>
           Major: Computer Science
         </Text>
-        <Text style={{marginLeft:100, fontWeight:'bold', fontSize:20, marginRight:20, marginTop:20}}>
+        <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:15, marginRight:20, marginTop:20}}>
           Grade: 11th / Junior
         </Text>
-        <Text style={{marginLeft:100, fontWeight:'bold', fontSize:20, marginRight:30, marginTop:20}}>
+        <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:15, marginRight:30, marginTop:20}}>
           Location: NJ, USA
         </Text>
         
-    </View>
+    </TouchableOpacity>
 
     </View>
 

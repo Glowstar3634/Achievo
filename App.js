@@ -12,6 +12,9 @@ import AthleticsScreen from "./app/athletics";
 import ServiceScreen from "./app/service";
 import { registerRootComponent } from 'expo';
 import tsa from "./app/tsa";
+import ExportOptScreen from './app/exportOpt';
+import ViolinScreen from './app/violin';
+import TennisScreen from './app/tennis';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +34,9 @@ export default function App() {
         <Stack.Screen name="Athletics" component={AthleticsScreen} />
         <Stack.Screen name="Service" component={ServiceScreen} />
         <Stack.Screen name="TSA" component={tsa} />
+        <Stack.Screen name="ExportOpt" component={ExportOptScreen} />
+        <Stack.Screen name="Violin" component={ViolinScreen} />
+        <Stack.Screen name="Tennis" component={TennisScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
     
