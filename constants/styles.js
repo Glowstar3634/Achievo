@@ -48,6 +48,22 @@ const styles = StyleSheet.create({
       fontWeight:'bold',
       color: 'white',
     },
+    button: {
+        // Default button style
+        height: 45,
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        borderRadius: 15,
+        backgroundColor: 'gray',
+      },
+    title: {
+        // Default title style
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'black',
+      },
     loginButton: {
         marginTop: 20,
         backgroundColor: COLORS.secondary
@@ -174,7 +190,7 @@ const styles = StyleSheet.create({
     },
     screenBio:{
         fontSize: 18,
-        margin: 10,
+        margin: 25,
         fontStyle: 'italic',
         color: 'white',
         width:'80%',
@@ -254,7 +270,54 @@ const styles = StyleSheet.create({
         color:'white',
         alignItems:'center',
         textAlign: 'center',
-    }
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 22,
+      },
+      modalView: {
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+      },
+      button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+      },
+      buttonOpen: {
+        backgroundColor: '#F194FF',
+      },
+      buttonClose: {
+        backgroundColor: '#2196F3',
+        width:200,
+        height:50
+      },
+      textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize:20
+      },
+      modalText: {
+        marginBottom: 15,
+        textAlign: 'center',
+        fontWeight:'bold',
+        fontSize:20,
+        lineHeight: 30,
+      },
 });
 
 export default styles;

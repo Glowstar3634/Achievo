@@ -24,6 +24,12 @@ const ClubsScreen = () => {
 const handleTSA = () => {
   navigation.navigate('TSA');
 };
+const handlerTSA = () => {
+  navigation.navigate('rTSA');
+};
+const handlevolley = () => {
+  navigation.navigate('volleyball');
+};
 
   return (
     <SafeAreaView style={{
@@ -73,7 +79,7 @@ const handleTSA = () => {
             )}
           </View>
 
-    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2, justifyContent: 'center',alignItems: 'center',}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2, justifyContent: 'center',alignItems: 'center',}]} onPress={handlerTSA}>
       <Text style={styles.clubBlockHeader}>TSA: Technology Student Association</Text>
       <Image
         style={{width:100, height:115, borderRadius:30, resizeMode:'contain'}}
@@ -91,7 +97,7 @@ const handleTSA = () => {
             )}
           </View>
     
-    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {borderColor: COLORS.white, borderWidth:2}]}onPress={handlevolley}>
       <Text style={styles.clubBlockHeader}>GSA: Garden State Attack Volleyball</Text>
       <Image
         style={{width:115, height:115, borderRadius:30, resizeMode:'contain'}}

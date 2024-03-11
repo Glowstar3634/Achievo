@@ -1,8 +1,8 @@
-import { SafeAreaView, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ScrollView} from 'react-native'
+import { SafeAreaView, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ScrollView, Button, Modal, Pressable} from 'react-native'
 import styles from '../constants/styles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { COLORS } from '../constants/theme';
-import React from 'react';
+import React,{useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -11,6 +11,7 @@ const ServiceScreen = () => {
   var name = "Ethan Poon";
   const [orgSearch, onOrgUpdate] = React.useState('');
   const [passwordInput, onPasswordUpdate] = React.useState('');
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <SafeAreaView style={{
@@ -54,21 +55,113 @@ const ServiceScreen = () => {
 
     <View style={{flex:3, height: '100%',width: '100%', display:'flex'}}>
     <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start'}}>
-    
-    <View elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Food Flow</Text>
+
+    <View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>I was a key leader for the Food Flow initiative. I coordinated pickup of goods, advertised the event, and hung posters around the school. I coordinated with administration to host the event raising over 400 lbs of food!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.textStyle}>Return</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+      <Pressable
+        elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}
+        onPress={() => setModalVisible(true)}>
+        <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Food Flow</Text>
+      </Pressable>
     </View>
 
-    <View elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Interact Replenish Food Drive</Text>
+    <View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>I was a key leader for the Food Flow initiative. I coordinated pickup of goods, advertised the event, and hung posters around the school. I coordinated with administration to host the event raising over 400 lbs of food!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.textStyle}>Return</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+      <Pressable
+        elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}
+        onPress={() => setModalVisible(true)}>
+        <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Replenish Food Drive</Text>
+      </Pressable>
     </View>
 
-    <View elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Interact Book Donation</Text>
+    <View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>I was a key leader for the Food Flow initiative. I coordinated pickup of goods, advertised the event, and hung posters around the school. I coordinated with administration to host the event raising over 400 lbs of food!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.textStyle}>Return</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+      <Pressable
+        elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}
+        onPress={() => setModalVisible(true)}>
+        <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Interact Book Donation</Text>
+      </Pressable>
     </View>
 
-    <View elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}>
-      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Revvifi Website Design</Text>
+    <View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(!modalVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>I was a key leader for the Food Flow initiative. I coordinated pickup of goods, advertised the event, and hung posters around the school. I coordinated with administration to host the event raising over 400 lbs of food!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.textStyle}>Return</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+      <Pressable
+        elevation={5} style={[styles.clubBlock, {height: 80, borderColor: COLORS.white, borderWidth:2}]}
+        onPress={() => setModalVisible(true)}>
+        <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Revvifi Website Design</Text>
+      </Pressable>
     </View>
 
     </ScrollView>
@@ -101,7 +194,7 @@ const ServiceScreen = () => {
         <Image
             style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
             tintColor={COLORS.white}
-            source={require('../constants/images/UIcons/theater-masks-2815.png')}
+            source={require('../constants/images/UIcons/music-note.png')}
         />
         </TouchableOpacity>
         <TouchableOpacity style={[styles.safeContain, {width:'15%', margin:6}]} onPress={() => navigation.navigate("Athletics")}>

@@ -4,7 +4,7 @@ import { COLORS } from '../constants/theme';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import * as ImageManipulator from 'react-native-image-manipulator';
-const TSA = () => {
+const rTSA = () => {
     const navigation = useNavigation();
     var name = "Ethan Poon";
     const [orgSearch, onOrgUpdate] = React.useState('');
@@ -18,7 +18,7 @@ const TSA = () => {
    
       const handleButtonPress = () => {
         // You can replace the URL with the desired link
-        const url = 'https://www.njfbla.org/';
+        const url = 'https://classroom.google.com/c/NDA0ODA1MTkxNTQx';
         Linking.openURL(url);
       };
     
@@ -39,8 +39,8 @@ const TSA = () => {
               resizeMode='contain'
             />
             </TouchableOpacity>
-      <Text style={styles.screenHeader}>FBLA</Text>
-      <Text style={styles.screenBio}>The FBLA mission is to bring business and education together in a positive working relationship through innovative leadership and career development programs.</Text>
+      <Text style={styles.screenHeader}>TSA</Text>
+      <Text style={styles.screenBio}>The TSA mission is to bring business and education together in a positive working relationship through innovative leadership and career development programs.</Text>
       </View>
   
       <View style={{flex:3, height: '100%',width: '100%', display:'flex'}}>
@@ -78,8 +78,8 @@ const TSA = () => {
       }}>
       <Image
               style={{ width: '100%',height:'100%', borderRadius: 100, borderColor: COLORS.white, borderWidth:2}}
-              source={require('../constants/images/UIcons/FBLA-Crest-FINAL-RGB-01-e1658431231682-300x300.png')}
-              
+              source={require('../constants/images/UIcons/tsa-logoff2c085a4556450589a0a1a426c8e98f.png')}
+              resizeMode='contain'
             />
           
       </View>
@@ -123,7 +123,7 @@ const TSA = () => {
             }}
           >
             
-            <Text style={[styles.buttonText, {fontSize:18}]}>{"Check out our chapter website"}</Text>
+            <Text style={[styles.buttonText, {fontSize:20}]}>{"Join our Google Classroom"}</Text>
           </TouchableOpacity>
       </View>
   
@@ -136,5 +136,5 @@ const TSA = () => {
 
 
 
-export default TSA;
+export default rTSA;
 

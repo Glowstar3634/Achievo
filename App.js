@@ -15,6 +15,8 @@ import tsa from "./app/tsa";
 import ExportOptScreen from './app/exportOpt';
 import ViolinScreen from './app/violin';
 import TennisScreen from './app/tennis';
+import rtsa from "./app/rtsa";
+import vb from "./app/vb"
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +39,8 @@ export default function App() {
         <Stack.Screen name="ExportOpt" component={ExportOptScreen} />
         <Stack.Screen name="Violin" component={ViolinScreen} />
         <Stack.Screen name="Tennis" component={TennisScreen}/>
+        <Stack.Screen name="rTSA" component={rtsa}/>
+        <Stack.Screen name="volleyball" component={vb}/>
       </Stack.Navigator>
     </NavigationContainer>
     
