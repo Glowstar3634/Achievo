@@ -4,7 +4,7 @@ import { COLORS } from '../constants/theme';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import * as ImageManipulator from 'react-native-image-manipulator';
-const Volleyball = () => {
+const VolleyBall = () => {
     const navigation = useNavigation();
     var name = "Ethan Poon";
     const [orgSearch, onOrgUpdate] = React.useState('');
@@ -136,5 +136,5 @@ const Volleyball = () => {
 
 
 
-export default Volleyball;
+export default VolleyBall;
 

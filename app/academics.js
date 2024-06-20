@@ -21,20 +21,25 @@ const AcademicsScreen = () => {
       backgroundColor: COLORS.dark
     }}>
     <View style={{width:'100%'}}>
-    <TouchableOpacity style={{flexDirection:'row', marginTop: 20, backgroundColor: COLORS.dark1, width:100, height:40, borderRadius: 20}} onPress={() => navigation.navigate('Home')}>
-          <Image
-            style={{ width: 30, height: 30, marginLeft: 10}}
-            source={require('../constants/images/UIcons/left-arrow-6404.png')}
-            tintColor={"white"}
-            resizeMode='contain'
-          />
-          <Image
+    <View style={{justifyContent:'space-between', flexDirection:'row'}}>
+      <TouchableOpacity style={{flexDirection:'row', marginTop: 20, backgroundColor: COLORS.dark1, width:100, height:40, borderRadius: 20}} onPress={() => navigation.navigate('Home')}>
+            <Image
+              style={{ width: 30, height: 30, marginLeft: 10}}
+              source={require('../constants/images/UIcons/left-arrow-6404.png')}
+              tintColor={"white"}
+              resizeMode='contain'
+            />
+            <Image
             style={{ width: 30, height: 30, marginLeft: 10}}
             source={require('../constants/images/UIcons/home-6133.png')}
             tintColor={"white"}
             resizeMode='contain'
           />
-          </TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity style={{alignItems: 'center', justifyContent: 'center', flexDirection:'row', marginTop: 20, backgroundColor: COLORS.primary, width:100, height:40, borderRadius: 20}} onPress={() => navigation.goBack()}>
+            <Text style={[styles.buttonText,{fontSize:15, width:'100%', textAlign:'center'}]}>Edit</Text>
+            </TouchableOpacity>
+      </View>
     <Text style={styles.screenHeader}>ACADEMICS</Text>
     <Text style={styles.screenBio}>“I am a passionate student about computer science with real world experience with internships and use skills to help my community“</Text>
     </View>

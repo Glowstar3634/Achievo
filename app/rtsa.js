@@ -4,7 +4,7 @@ import { COLORS } from '../constants/theme';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import * as ImageManipulator from 'react-native-image-manipulator';
-const rTSA = () => {
+const RTSA = () => {
     const navigation = useNavigation();
     var name = "Ethan Poon";
     const [orgSearch, onOrgUpdate] = React.useState('');
@@ -136,5 +136,5 @@ const rTSA = () => {
 
 
 
-export default rTSA;
+export default RTSA;
 

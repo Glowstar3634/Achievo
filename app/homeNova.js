@@ -6,7 +6,7 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
-const HomeScreen = () => {
+const HomeNova = () => {
   const navigation = useNavigation();
   var name = "Ethan Poon";
   const [orgSearch, onOrgUpdate] = React.useState('');
@@ -21,7 +21,7 @@ const HomeScreen = () => {
       backgroundColor: COLORS.dark
     }}>
     <View style={{width:'100%'}}>
-    <Text style={styles.screenHeader}>HI! I'M ETHAN!</Text>
+    <Text style={styles.screenHeader}>HI! I'M NOVA!</Text>
     <Text style={[styles.screenHeader, {marginTop: 20, fontSize:25, fontWeight:'normal'}]}>View/Edit your portfolio:</Text>
     </View>
 
@@ -118,15 +118,15 @@ const HomeScreen = () => {
     </View>
 
     <View elevation={5} style={[styles.clubBlock, {height: 'auto', width: '85%', shadowColor: COLORS.secondary, borderColor: COLORS.white, borderWidth:2, borderRadius:10}]}>
-      <Text style={[styles.clubBlockHeader, {margin:15, marginTop:15, width:'100%'}]}>FBLA: 2 New Posts</Text>
+      <Text style={[styles.clubBlockHeader, {margin:15, marginTop:15, width:'100%'}]}>NSBE: 3 New Posts</Text>
     </View>
 
     <View elevation={5} style={[styles.clubBlock, {height: 'auto', width: '85%', shadowColor: COLORS.secondary, borderColor: COLORS.white, borderWidth:2, borderRadius:10}]}>
-      <Text style={[styles.clubBlockHeader, {margin:15, marginTop:15, width:'100%'}]}>Dance Academy: 1 New Post</Text>
+      <Text style={[styles.clubBlockHeader, {margin:15, marginTop:15, width:'100%'}]}>ATA: 1 New Post</Text>
     </View>
 
     <View elevation={5} style={[styles.clubBlock, {height: 'auto', width: '85%', shadowColor: COLORS.secondary, borderColor: COLORS.white, borderWidth:2, borderRadius:10}]}>
-      <Text style={[styles.clubBlockHeader, {margin:15, marginTop:15, width:'100%'}]}>TSA: 3 New Posts</Text>
+      <Text style={[styles.clubBlockHeader, {margin:15, marginTop:15, width:'100%'}]}>Chess Club: 2 New Posts</Text>
     </View>
 
     <Text style={{alignSelf:"flex-end", marginRight:25, fontSize:20, marginTop:10, color: COLORS.white}}>View All {'\>\>'}</Text>
@@ -144,13 +144,13 @@ const HomeScreen = () => {
         {/* Porfolio Export Button*/}
         <Image
         style={{width:130, height:130, marginRight:240, borderRadius:40, marginTop:10,borderColor: COLORS.white, borderWidth:2}}
-        source={require('../app/pfp.png')}
+        source={require('../app/novaP.png')}
         />
         <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:30, marginTop:-120, marginRight:30}}>
-          Ethan Poon
+          Nova Travis
         </Text>
         <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:15, marginRight:-40, marginTop:20}}>
-          Major: Computer Science
+          Major: Particle Physics
         </Text>
         <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:15, marginRight:20, marginTop:20}}>
           Grade: 11th / Junior
@@ -170,4 +170,4 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen;
+export default HomeNova;

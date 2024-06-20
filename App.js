@@ -17,6 +17,15 @@ import ViolinScreen from './app/violin';
 import TennisScreen from './app/tennis';
 import rtsa from "./app/rtsa";
 import vb from "./app/vb"
+import RTSA from './app/rtsa';
+import VolleyBall from './app/vb';
+import SearchScreen from './app/search';
+import Nova from './app/nova';
+import Kumon from './app/kumon';
+import SciOly from './app/scioly';
+import Gallery from './app/gallery';
+import HomeNova from './app/homeNova';
+import Resume from './app/resume';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,8 +48,15 @@ export default function App() {
         <Stack.Screen name="ExportOpt" component={ExportOptScreen} />
         <Stack.Screen name="Violin" component={ViolinScreen} />
         <Stack.Screen name="Tennis" component={TennisScreen}/>
-        <Stack.Screen name="rTSA" component={rtsa}/>
-        <Stack.Screen name="volleyball" component={vb}/>
+        <Stack.Screen name="rTSA" component={RTSA}/>
+        <Stack.Screen name="volleyball" component={VolleyBall}/>
+        <Stack.Screen name="Search" component={SearchScreen}/>
+        <Stack.Screen name="Nova" component={Nova}/>
+        <Stack.Screen name="Kumon" component={Kumon}/>
+        <Stack.Screen name="Scioly" component={SciOly}/>
+        <Stack.Screen name="Gallery" component={Gallery}/>
+        <Stack.Screen name="HomeNova" component={HomeNova}/>
+        <Stack.Screen name="Resume" component={Resume}/>
       </Stack.Navigator>
     </NavigationContainer>
     

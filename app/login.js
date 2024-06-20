@@ -11,10 +11,14 @@ const LoginScreen = () => {
   const [passwordInput, onPasswordUpdate] = React.useState('');
   
   const handleLogInPress = () =>{
-    const success = true;
+    
 
-    if (success == true){
+    if (usernameInput == "ewpoon007@gmail.com" && passwordInput == "NJFBLAmplify"){
       navigation.navigate('Home');
+    } else if(usernameInput == "glowstar5297@gmail.com" && passwordInput == "FBLA123"){
+      navigation.navigate('HomeNova');
+    } else{
+      
     }
   }
 

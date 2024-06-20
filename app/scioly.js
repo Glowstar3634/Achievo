@@ -4,7 +4,7 @@ import { COLORS } from '../constants/theme';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import * as ImageManipulator from 'react-native-image-manipulator';
-const TSA = () => {
+const SciOly = () => {
     const navigation = useNavigation();
     var name = "Ethan Poon";
     const [orgSearch, onOrgUpdate] = React.useState('');
@@ -31,7 +31,8 @@ const TSA = () => {
         backgroundColor: COLORS.dark
       }}>
       <View style={{width:'100%'}}>
-      <TouchableOpacity style={{flexDirection:'row', marginTop: 20, backgroundColor: COLORS.dark1, width:100, height:40, borderRadius: 20}} onPress={() => navigation.goBack()}>
+      <View style={{justifyContent:'space-between', flexDirection:'row'}}>
+      <TouchableOpacity style={{flexDirection:'row', marginTop: 20, backgroundColor: COLORS.dark1, width:100, height:40, borderRadius: 20}} onPress={() => navigation.navigate('Home')}>
             <Image
               style={{ width: 30, height: 30, marginLeft: 10}}
               source={require('../constants/images/UIcons/left-arrow-6404.png')}
@@ -39,7 +40,11 @@ const TSA = () => {
               resizeMode='contain'
             />
             </TouchableOpacity>
-      <Text style={styles.screenHeader}>FBLA</Text>
+            <TouchableOpacity style={{alignItems: 'center', justifyContent: 'center', flexDirection:'row', marginTop: 20, backgroundColor: COLORS.primary, width:100, height:40, borderRadius: 20}}>
+            <Text style={[styles.buttonText,{fontSize:15, width:'100%', textAlign:'center'}]}>Add</Text>
+            </TouchableOpacity>
+      </View>
+      <Text style={styles.screenHeader}>Science Olympiad</Text>
       <Text style={styles.screenBio}>The FBLA mission is to bring business and education together in a positive working relationship through innovative leadership and career development programs.</Text>
       </View>
   
@@ -61,20 +66,14 @@ const TSA = () => {
       width:'95%'
       
       }}>
-      <TouchableOpacity style={{ marginLeft:20,width: 70,height:70}} onPress={() => Linking.openURL('https://www.instagram.com/njfbla?igsh=ZnFzbmVra2d0cDB4')}>
       <Image
-              style={{ width: '100%',height:'100%'}}
+              style={{ marginLeft:20,width: 70,height:70}}
               source={require('../constants/images/brand/linkedin.png')}
             />
-      </TouchableOpacity>
-      
-      <TouchableOpacity style={{ marginLeft:20,width: 75,height:95, marginTop:70}} onPress={() => Linking.openURL('https://www.facebook.com/njfbla?mibextid=LQQJ4d')}>
       <Image
-              style={{ width: '100%',height:'100%'}}
+              style={{ marginLeft:20,width: 75,height:95, marginTop:70}}
               source={require('../constants/images/brand/facebook.png')}
             />
-      </TouchableOpacity>
-      
       </View>
       <View style={{
       flexDirection:'column',
@@ -84,7 +83,7 @@ const TSA = () => {
       }}>
       <Image
               style={{ width: '100%',height:'100%', borderRadius: 100, borderColor: COLORS.white, borderWidth:2}}
-              source={require('../constants/images/UIcons/FBLA-Crest-FINAL-RGB-01-e1658431231682-300x300.png')}
+              source={require('../constants/images/UIcons/scioly.png')}
               
             />
           
@@ -94,20 +93,14 @@ const TSA = () => {
       flex:1.5,
       width:'95%'
       }}>
-      <TouchableOpacity style={{width: 75,height:95, marginTop:-15}} onPress={() => Linking.openURL('mailto:kclark@njfbla.org')}>
       <Image
-                style={{width: '100%',height:'100%'}}
+                style={{width: 75,height:95, marginTop:-15}}
                 source={require('../constants/images/brand/gmail.png')}
               />
-      </TouchableOpacity>
-      
-      <TouchableOpacity style={{width: 75,height:75, marginTop:55}}>
       <Image
-                style={{width: '100%',height:'100%', borderRadius:20}}
+                style={{width: 75,height:70, borderRadius:20,marginTop:70}}
                 source={require('../constants/images/brand/insta.jpg')}
               />
-      </TouchableOpacity>
-      
       </View>
 
     </View>
@@ -135,7 +128,7 @@ const TSA = () => {
             }}
           >
             
-            <Text style={[styles.buttonText, {fontSize:18}]}>{"Check out our chapter website"}</Text>
+            <Text style={[styles.buttonText, {fontSize:18}]}>{"Check out our website"}</Text>
           </TouchableOpacity>
       </View>
   
@@ -148,5 +141,5 @@ const TSA = () => {
 
 
 
-export default TSA;
+export default SciOly;
 
