@@ -30,6 +30,7 @@ import Resume from './app/resume';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  console.log('App loading...');
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="start" screenOptions={{

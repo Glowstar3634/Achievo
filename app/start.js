@@ -6,15 +6,16 @@ import { useNavigation } from '@react-navigation/native';
 import * as ImageManipulator from 'react-native-image-manipulator';
 
 const StartScreen = () => {
-    const navigation = useNavigation();
+  console.log('StartScreen loaded');
+  const navigation = useNavigation();
   
-  const handleSignUpPress = () =>{
+  const handleSignUpPress = () => {
     navigation.navigate('SignUp');
   };
 
-    const handleLoginPress = () => {
-      navigation.navigate('Login');
-    };
+  const handleLoginPress = () => {
+    navigation.navigate('Login');
+  };
   
   return (
     <SafeAreaView style={{
