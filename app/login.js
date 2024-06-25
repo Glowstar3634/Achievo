@@ -4,6 +4,7 @@ import { COLORS } from '../constants/theme';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Video } from 'expo-av';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -28,38 +29,61 @@ const LoginScreen = () => {
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:COLORS.dark
+        backgroundColor:COLORS.shadow
     }}>
+        <Video
+        source={require('../constants/videos/copy_16A8AD4E-27DA-402C-BB0B-699EEB2C552A.mov')} // Replace with your video file
+        rate={1.0}
+        volume={1.0}
+        isMuted={false}
+        shouldPlay = {true}
+        isLooping = {true}
+        style={[styles.video, {
+          top: -550,
+          left: 0,
+          bottom: 0,
+          right: 0,
+        }]}
+        />
         <View style={{
-        alignContent:'flex-start',
-        flexDirection: 'column',
-        justifyContent:'center',
-        flex:1,
-        marginTop:25,
-        width: '100%', height: '100%'
+      alignContent:'flex-start',
+      alignSelf:'flex-start',
+      flexDirection: 'column',
+      justifyContent:'center',
+      flex:1,
+      marginTop:25, height: '100%',
+      }}>
+      
+        <TouchableOpacity style={{ height: 40, backgroundColor: "#060218AA", borderRadius: 10, marginLeft: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}} onPress={() => navigation.goBack()}>
+        <Image
+          style={{ width: 20, height: 20, marginLeft: 10}}
+          source={require('../constants/images/UIcons/left-arrow-6404.png')}
+          tintColor={"white"}
+        />
+        <Text style={{
+          color: COLORS.white,
+          marginLeft: 20,
+          marginRight: 20,
+          fontWeight: 'bold',
+          fontSize: 20
         }}>
-        
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Image
-            style={{ width: 40, height: 40, marginLeft: 10}}
-            source={require('../constants/images/UIcons/left-arrow-6404.png')}
-            tintColor={"white"}
-          />
-          </TouchableOpacity>
-        </View>
+          Back
+        </Text>
+        </TouchableOpacity>
+      </View>
         
         <View style={{
         alignContent:'space-around',
         flexDirection: 'column',
         justifyContent:'flex-start',
-        flex:9,
+        flex:2,
         width:'100%',
         borderTopRightRadius: 70,
         borderTopLeftRadius: 70,
         marginTop:80,
         }}>
-        <LinearGradient
-      colors={['#FFFFFF', '#E1D9CA']}
+        <View
+      
       style={{
         alignContent:'space-around',
         flexDirection: 'column',
@@ -71,9 +95,8 @@ const LoginScreen = () => {
       }}
     >
         
-        <View style={{flex:6}}>
+        <View style={{flex:2, marginBottom: 40}}>
         
-        <Text style={styles.startHeaders}>L O G I N</Text>
         </View>
 
         <View style={{flex:14, justifyContent: "space-around"}}>
@@ -92,7 +115,7 @@ const LoginScreen = () => {
         
         <View style={{marginBottom:20, marginLeft:-30, marginRight: -30,}}>
         <Text style={styles.startInputHint}>Password:</Text>
-        <View style={styles.startInputArea3}>
+        <View style={styles.startInputArea}>
           <TextInput 
             style={styles.startInput}
             onChangeText={passwordInput => onPasswordUpdate(passwordInput)}
@@ -106,23 +129,23 @@ const LoginScreen = () => {
         <Text style={[styles.startInputHint, {textAlign:'center'}]}>OR</Text>
 
         </View>
-        <View style={{flex:1, flexDirection:"row", justifyContent: "space-around"}}>
+        <View style={{flex:3, flexDirection:"row", justifyContent: "space-around"}}>
         <TouchableOpacity>
         <Image
-            style={{ width: 25, height: 25, marginLeft:35}}
-            source={require('../constants/images/UIcons/left-arrow-6404.png')}
+            style={{height: "100%", aspectRatio: 1}}
+            source={require('../constants/images/brand/9812e19e7bf150a7f17bf2849dd5a33e.png')}
           />
         </TouchableOpacity>
         <TouchableOpacity>
         <Image
-            style={{ width: 25, height: 25}}
-            source={require('../constants/images/UIcons/left-arrow-6404.png')}
+            style={{height: "100%", aspectRatio: 1, tintColor: COLORS.white}}
+            source={require('../constants/images/brand/Apple-Logo.png')}
           />
         </TouchableOpacity>
         <TouchableOpacity>
         <Image
-            style={{ width: 25, height: 25, marginRight:35}}
-            source={require('../constants/images/UIcons/left-arrow-6404.png')}
+            style={{height: "100%", aspectRatio: 1}}
+            source={require('../constants/images/brand/facebook.png')}
           />
         </TouchableOpacity>
         </View>
@@ -132,10 +155,10 @@ const LoginScreen = () => {
           style={[styles.buttonStart, styles.signUpButton]}
           onPress={handleLogInPress}
         >
-          <Text style={styles.buttonText}>L O G   I N</Text>
+          <Text style={styles.buttonText}>Log In</Text>
         </TouchableOpacity>
         </View>
-        </LinearGradient>
+        </View>
           </View>
     </SafeAreaView>
   )

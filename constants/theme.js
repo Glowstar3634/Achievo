@@ -1,15 +1,15 @@
 const COLORS = {
-  primary: "#56a1e0",
-  secondary: "#70c299",
-  tertiary: "#FF7754",
-  gray: "#83829A",
-  gray2: "#4D4C4C",
+  shadow : "#060218",
+primary : "#4957C6",
+primDark: "#1A094B",
+primLight : "#D8DBEF",
+secondary : "#1860C2",
+secoDark : "#09254B",
+secoLight : "#D3E0F1",
+tertiary : "#BC6CBE",
+tertDark : "#3E094B",
+tertLight : "#ECD9ED",
 
-  dark: "#1c1d21",
-  dark1: "#141417",
-  dark2: "#2e2e2e",
-
-  light:"#626161",
 
   white: "#F3F4F8",
   black: "#FF000000",

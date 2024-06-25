@@ -14,12 +14,22 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     },
     buttonStart: {
-        height:75,
+        height:60,
         alignItems: 'center',
         alignSelf:"center",
         justifyContent: 'center',
-        width:'90%',
-        borderRadius: 15,
+        width:'80%',
+        borderRadius: 30,
+    },
+    sectionShadow:{
+        shadowColor: COLORS.dark1,
+        shadowOffset: {
+          width: 0,
+          height: 3
+        },
+        shadowRadius: 3,
+        shadowOpacity: 1.0,
+        elevation: 5
     },
     triangleDown: {
         width: 0,
@@ -73,9 +83,10 @@ const styles = StyleSheet.create({
       backgroundColor: COLORS.primary
     },
     startHeaders:{
-        fontSize: 50,
+        fontSize: 40,
         marginTop: 40,
-        color: 'black',
+        marginTop: 40,
+        color: 'white',
         width:'100%',
         textAlign: 'center',
         fontWeight: 'bold',
@@ -96,14 +107,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width:'100%',
         padding:10,
-        color:'black'
+        color:'white'
     },
     startInputHint: {
-        fontSize: 20,
+        fontSize: 15,
         marginTop: -40,
         marginBottom:3,
         paddingLeft:8,
-        color: 'black',
+        color: 'white',
         width:'70%',
         alignSelf:'center',
         alignItems:'center'
@@ -116,9 +127,10 @@ const styles = StyleSheet.create({
         width:'70%',
         marginTop:10,
         height:55,
-        borderRadius: 20,
-        backgroundColor: COLORS.light,
-        backgroundColor:'#A7D1BC',
+        borderRadius: 15,
+        borderWidth : 1,
+        backgroundColor: COLORS.shadow,
+        borderColor : COLORS.primLight
     },
     startInputArea3: {
         height:50,
@@ -214,6 +226,14 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 5,
         shadowOpacity: 1.0
+    },
+    video: {
+    flex: 1,
+    position: 'absolute',
+    top: 20,
+    left: 0,
+    bottom: 0,
+    right: 0,
     },
     clubBlock:{
         height: 135,

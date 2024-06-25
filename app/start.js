@@ -3,6 +3,7 @@ import styles from '../constants/styles';
 import { COLORS } from '../constants/theme';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { Video } from 'expo-av';
 import * as ImageManipulator from 'react-native-image-manipulator';
 
 const StartScreen = () => {
@@ -22,37 +23,36 @@ const StartScreen = () => {
         flex:1,
         display:'flex',
         alignItems:'center',
-        justifyContent:'center',
-        backgroundColor:COLORS.bg
+        justifyContent:'flex-end',
+        backgroundColor:COLORS.shadow,
+        padding:50
     }}>
-        <View style={{
-        alignContent:'center',
-        flexDirection: 'column',
-        justifyContent:'center',
-        flex:1,
-        width: '100%', height: '100%'
-        }}>
-          <Image
-            style={{ width: '100%', height: '80%', resizeMode: 'contain'}}
-            source={require('../constants/images/brand/Achievo-logo-bg.png')}
-          />
-        </View>
-
-        <View style={{flex:1, justifyContent:'flex-start', width: '100%', height: '100%'}}>
-        <TouchableOpacity
-          style={[styles.buttonStart, styles.loginButton]}
-          onPress={handleLoginPress}
-        >
-          <Text style={styles.buttonText}>L O G I N</Text>
+        <Video
+        source={require('../constants/videos/copy_16A8AD4E-27DA-402C-BB0B-699EEB2C552A.mov')} // Replace with your video file
+        rate={1.0}
+        volume={1.0}
+        isMuted={false}
+        shouldPlay = {true}
+        isLooping = {true}
+        style={styles.video}
+        />
+        <TouchableOpacity style={[styles.sectionShadow, styles.buttonStart, {
+          backgroundColor: COLORS.primary, 
+          shadowColor: COLORS.primary,
+          shadowOffset: {
+          width: 0,
+          height: 0
+          },
+          shadowRadius: 20,
+          shadowOpacity: 1.0,
+          }]} onPress={handleLoginPress}>
+        <Text style={{fontSize: 18, color: COLORS.white, fontWeight: 'bold'}}>Login</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.buttonStart, styles.signUpButton]}
-          onPress={handleSignUpPress}
-        >
-          <Text style={styles.buttonText}>S I G N   U P</Text>
+        <TouchableOpacity style={[styles.buttonStart, {
+          
+          }]}>
+        <Text style={{fontSize: 18, color: COLORS.white, fontWeight: 'bold'}} onPress={handleSignUpPress}>Sign Up</Text>
         </TouchableOpacity>
-        </View>
     </SafeAreaView>
   )
 } 
