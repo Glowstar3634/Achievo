@@ -9,6 +9,8 @@ secoLight : "#D3E0F1",
 tertiary : "#BC6CBE",
 tertDark : "#3E094B",
 tertLight : "#ECD9ED",
+darkness: "#05020f",
+dark: "#05020f",
 
 
   white: "#F3F4F8",

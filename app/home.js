@@ -18,28 +18,61 @@ const HomeScreen = () => {
       display:'flex',
       alignItems:'center',
       justifyContent:'flex-start',
-      backgroundColor: COLORS.dark
+      backgroundColor: COLORS.darkness
     }}>
-    <View style={{width:'100%'}}>
-    <Text style={styles.screenHeader}>HI! I'M ETHAN!</Text>
-    <Text style={[styles.screenHeader, {marginTop: 20, fontSize:25, fontWeight:'normal'}]}>View/Edit your portfolio:</Text>
+    <View style={{width: "100%"}}>
+    <Text style={[styles.screenHeader, {marginTop:20, marginLeft:20}]}>Welcome, Ethan</Text>
     </View>
 
 
+    <View style={{flex:5, height: '100%',width: '100%', display:'flex', margin:10}}>
+    <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start'}}>
+    <TouchableOpacity style={{width:"95%", height:200, backgroundColor:COLORS.dark2,borderColor: COLORS.white, borderWidth:2, marginBottom: 20, shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowRadius: 5,
+        shadowOpacity: 1.0, shadowColor: COLORS.secondary, borderRadius:20,alignItems: 'center',
+        alignSelf:"center",marginTop:10, flexDirection: 'row', justifyContent: 'center'}} onPress= {() => navigation.navigate('ExportOpt')}>
+        {/* Porfolio Export Button*/}
+        <Image
+        style={{width:130, height:130, borderRadius:40, margin:10,borderColor: COLORS.white, borderWidth:2, marginRight: 30}}
+        source={require('../app/pfp.png')}
+        />
+        <View style={{
+        }}>
+        <Text style={{color: 'white', fontWeight:'bold', fontSize:30, marginBottom: 20}}>
+          Ethan Poon
+        </Text>
+        <Text style={{color: 'white', fontWeight:'bold', fontSize:15, marginBottom: 10}}>
+          Major: Computer Science
+        </Text>
+        <Text style={{color: 'white', fontWeight:'bold', fontSize:15, marginBottom: 10}}>
+          Grade: 11th / Junior
+        </Text>
+        <Text style={{color: 'white', fontWeight:'bold', fontSize:15, marginBottom: 10}}>
+          Location: NJ, USA
+        </Text>
+        </View>
+        
+        
+    </TouchableOpacity>
     <View style={[{
-          height:80, 
+          
           margin:5,
           alignSelf: 'center',
-          borderRadius: 30,
+          borderRadius: 20,
           width: '95%',
-          flexDirection:'row',
           justifyContent:'space-around',
-          backgroundColor: COLORS.dark
+          backgroundColor: COLORS.darkness,
+          borderColor: COLORS.secoDark,
+          borderWidth:2
         }, styles.sectionShadow]}>
-        <View style={{height:100}}>
-        <ScrollView horizontal={true} contentContainerstyle={styles.top}>
+        <Text style={[styles.screenHeader, {fontSize:20, fontWeight:'normal', textAlign:'center'}]}>View/Edit your portfolio:</Text>
+        <View style={{height:100, }}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
 
-        <View style={{height:60, marginRight:20}}>
+        <View style={{height:60, alignItems:'center'}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2, width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate('Clubs')}>
         <Image
             style={{  width: '60%', height: '85%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
@@ -50,7 +83,7 @@ const HomeScreen = () => {
         <Text style={styles.undericon}>CLUBS</Text>
         </View>
 
-        <View style={{height:60, marginRight:20}}>
+        <View style={{height:60, alignItems:'center'}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2, width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate('Academics')}>
         <Image
             style={{  width: '70%', height: '90%', alignSelf:"center",margin: 3, resizeMode:'contain', marginBottom:40}}
@@ -61,7 +94,7 @@ const HomeScreen = () => {
         <Text style={styles.undericon}>ACADEMICS</Text>
         </View>
 
-        <View style={{height:60, marginRight:20}}>
+        <View style={{height:60, alignItems:'center'}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2 ,width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate("Arts")}>
         <Image
             style={{  width: '60%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
@@ -72,7 +105,7 @@ const HomeScreen = () => {
         <Text style={styles.undericon}>ARTS</Text>
         </View>
 
-        <View style={{height:60, marginRight:20}}>
+        <View style={{height:60, alignItems:'center'}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2, width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate("Athletics")}>
         <Image
             style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
@@ -83,7 +116,7 @@ const HomeScreen = () => {
         <Text style={styles.undericon}>ATHLETICS</Text>
         </View>
 
-        <View style={{height:60, marginRight:20}}>
+        <View style={{height:60, alignItems:'center'}}>
         <TouchableOpacity style={[styles.safeContain, {borderRadius: 30, borderColor: COLORS.secondary, borderWidth:2, width:60, height:'100%', margin:6}]} onPress={() => navigation.navigate("Service")}>
         <Image
             style={{  width: '80%', height: '80%', alignSelf:"center",margin: 3, resizeMode:'contain'}}
@@ -94,26 +127,36 @@ const HomeScreen = () => {
         <Text style={styles.undericon}>SERVICE</Text>
         </View>
 
-        </ScrollView>
+        </View>
         </View>
       </View>
 
-
-    <View style={{flex:4, height: '100%',width: '100%', display:'flex', margin:10}}>
-    <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start'}}>
-    <View style={{marginBottom:30, width: '100%', marginTop:10}}>
+      <View style={[{
+          
+          margin:5,
+          alignSelf: 'center',
+          borderRadius: 20,
+          width: '95%',
+          justifyContent:'space-around',
+          backgroundColor: COLORS.darkness,
+          borderColor: COLORS.secoDark,
+          borderWidth:2
+        }, styles.sectionShadow]}>
+        <Text style={[styles.screenHeader, {fontSize:20, fontWeight:'normal', textAlign:'center'}]}>Connect</Text>
+        <View style={{marginBottom:30, width: '100%', marginTop:10, flexDirection: 'row', justifyContent: 'center'}}>
     <TextInput
-        style={{width: 300, height: 40, backgroundColor: COLORS.dark2, borderRadius: 20, paddingHorizontal: 20, height:50, width:370, marginLeft:20, marginBottom:-133, marginTop:10}} // Example styling for TextInput
-        placeholder="Search people, organizations, etc..." // Placeholder text
+        style={{backgroundColor: COLORS.dark2, borderRadius: 20,paddingHorizontal: 20, height:50, width:"80%",  borderColor: COLORS.secoDark, borderWidth: 2}}
+        placeholder="Search people, organizations, etc..."
         onChangeText={orgSearch => onOrgUpdate(orgSearch)}
-        placeholderTextColor={COLORS.gray2}
+        placeholderTextColor={COLORS.white}
         color={COLORS.white}
         />
-        <TouchableOpacity style={{width:55,height:55,backgroundColor:COLORS.secondary, borderRadius:12, marginTop:80, marginLeft:340}} onPress={()=> navigation.navigate('Search', {input: orgSearch})}>
-        </TouchableOpacity>
-        <View style={{marginTop:-40,marginLeft:355}}>
-            <Ionicons name="ios-search" size={24} color="black" />
+        <TouchableOpacity style={{width:50,height:50,backgroundColor:COLORS.secondary, borderRadius:20, alignItems: 'center', justifyContent: 'center', marginLeft: -50}} onPress={()=> navigation.navigate('Search', {input: orgSearch})}>
+        <View style={{}}>
+            <Ionicons name="search" size={24} color="black" />
         </View>
+        </TouchableOpacity>
+        
       
     </View>
 
@@ -130,36 +173,45 @@ const HomeScreen = () => {
     </View>
 
     <Text style={{alignSelf:"flex-end", marginRight:25, fontSize:20, marginTop:10, color: COLORS.white}}>View All {'\>\>'}</Text>
-
-    <View style={{flex:1, width:'100%'}}>
-    <Text style={[styles.screenHeader, {marginTop: 20, fontSize:25, fontWeight:'normal'}]}>Export your portfolio:</Text>
+        </View>
     
-    <TouchableOpacity style={{width:380, height:200, backgroundColor:COLORS.dark2,borderColor: COLORS.white, borderWidth:2, borderRadius:10,shadowOffset: {
-            width: 0,
-            height: 3
-        },
-        shadowRadius: 5,
-        shadowOpacity: 1.0, shadowColor: COLORS.secondary, borderRadius:40,alignItems: 'center',
-        alignSelf:"center",marginTop:10}} onPress= {() => navigation.navigate('ExportOpt')}>
-        {/* Porfolio Export Button*/}
-        <Image
-        style={{width:130, height:130, marginRight:240, borderRadius:40, marginTop:10,borderColor: COLORS.white, borderWidth:2}}
-        source={require('../app/pfp.png')}
-        />
-        <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:30, marginTop:-120, marginRight:30}}>
-          Ethan Poon
-        </Text>
-        <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:15, marginRight:-40, marginTop:20}}>
-          Major: Computer Science
-        </Text>
-        <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:15, marginRight:20, marginTop:20}}>
-          Grade: 11th / Junior
-        </Text>
-        <Text style={{color: 'white', marginLeft:100, fontWeight:'bold', fontSize:15, marginRight:30, marginTop:20}}>
-          Location: NJ, USA
-        </Text>
-        
+
+        <View style={[{
+          
+          margin:5,
+          alignSelf: 'center',
+          borderRadius: 20,
+          width: '95%',
+          justifyContent:'space-around',
+          backgroundColor: COLORS.darkness,
+          borderColor: COLORS.secoDark,
+          borderWidth:2
+        }, styles.sectionShadow]}>
+    <Text style={[styles.screenHeader, {fontSize:20, fontWeight:'normal', textAlign:'center'}]}>Next Steps:</Text>
+    
+    <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start', marginTop: 20}}>
+    
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {height: 75, borderColor: COLORS.white, borderWidth:2}]} onPress={() => navigation.navigate('Resume')}>
+      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Generate Resume from Portfolio</Text>
     </TouchableOpacity>
+
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {height: 75, borderColor: COLORS.white, borderWidth:2}]}>
+      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Generate Resume with AI</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {height: 75, borderColor: COLORS.white, borderWidth:2}]}>
+      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Generate Website from Portfolio</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {height: 75, borderColor: COLORS.white, borderWidth:2}]}>
+      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Generate Website with AI</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {height: 75, borderColor: COLORS.white, borderWidth:2}]}>
+      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Manual Resume Creation</Text>
+    </TouchableOpacity>
+
+    </ScrollView>
 
     </View>
 

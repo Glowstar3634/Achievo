@@ -172,16 +172,15 @@ const styles = StyleSheet.create({
         backgroundColor:'#9DC0DD'
     },
     screenHeader:{
-        fontSize: 40,
+        fontSize: 30,
         marginTop: 10,
-        paddingLeft: 10,
-        paddingRight: 10,
         color: 'white',
         width:'100%',
-        textAlign: 'center',
+        textAlign: 'left',
         fontWeight: 'bold',
-        alignItems:'center',
-        letterSpacing:2
+        alignItems:'flex-start',
+        letterSpacing:2,
+        alignSelf: 'flex-start'
     },
     lineBreak:{
         width:'100%',
@@ -263,7 +262,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     clubBlockHeader:{
-        fontSize: 22,
+        fontSize: 18,
         margin: 15,
         marginTop: 40,
         color: 'white',
@@ -290,6 +289,7 @@ const styles = StyleSheet.create({
         color:'white',
         alignItems:'center',
         textAlign: 'center',
+        fontSize: 12
     },
     centeredView: {
         flex: 1,
