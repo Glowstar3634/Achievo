@@ -28,52 +28,100 @@ const AiResumeScreen = () => {
                 "email": "ewpoon007@gmail.com",
                 "phone": "7323392432"
             },
-            "address": null
+            "address": null,
+            "desc": "Passionate student at Edison Academy Magnet School with a keen interest in technology, programming, and community service. Dedicated to academic excellence and extracurricular involvement."
         },
         "skills": {
-            "0": "Expert programmer in Java, Kotlin, Javascript, and C++",
-            "1": "Skilled in various data science applications"
+            "0": {
+                "skill": "Expert programmer in Java, Kotlin, Javascript, and C++"
+            },
+            "1": {
+                "skill": "Skilled in various data science applications"
+            },
+            "desc": "A well-rounded skill set including advanced programming capabilities and data science proficiency."
         },
         "academics": {
             "weightedGPA": 4.6,
             "unweightedGPA": 3.98,
-            "SAT" : 1590,
-            "ACT" : null,
-            "APTests" : 12,
+            "SAT": 1590,
+            "ACT": null,
+            "APTests": 12,
             "APClassesTaken": 12,
             "IBClassesTaken": 5,
-            "DualEnrollmentClassesTaken": 2
+            "DualEnrollmentClassesTaken": 2,
+            "desc": "Outstanding academic record with a strong GPA and high scores on standardized tests, demonstrating a commitment to academic achievement and mastery of advanced coursework."
         },
         "organizations": {
-            "0": "FBLA: Future Business Leaders of America",
-            "1": "TSA: Technology Student Association",
-            "2": "GSA: Garden State Attack Volleyball",
-            "3": "Revvifi Consulting"
+            "0": {
+                "title": "FBLA: Future Business Leaders of America"
+            },
+            "1": {
+                "title": "TSA: Technology Student Association"
+            },
+            "2": {
+                "title": "GSA: Garden State Attack Volleyball"
+            },
+            "3": {
+                "title": "Revvifi Consulting"
+            },
+            "desc": "Active involvement in a variety of organizations, each contributing to personal and professional growth in unique ways."
         },
         "arts": {
-            "0": "Concert Violin",
-            "1": "Theater Playwriting and Directing",
-            "2": "Classical Ballet",
-            "3": "Painting"
+            "0": {
+                "art": "Concert Violin"
+            },
+            "1": {
+                "art": "Theater Playwriting and Directing"
+            },
+            "2": {
+                "art": "Classical Ballet"
+            },
+            "3": {
+                "art": "Painting"
+            },
+            "desc": "A diverse range of artistic pursuits, reflecting a commitment to creativity and expression in multiple forms."
         },
         "athletics": {
-            "0": "Tennis",
-            "1": "Fencing",
-            "2": "Soccer",
+            "0": {
+                "sport": "Tennis"
+            },
+            "1": {
+                "sport": "Fencing"
+            },
+            "2": {
+                "sport": "Soccer"
+            },
+            "desc": "Involvement in various sports, each contributing to physical health, teamwork, and strategic thinking."
         },
         "service": {
             "serviceHours": 500,
             "organizations": {
-                "0": "Food Flow",
-                "1": "Replenish Food Drive",
-                "2": "Interact Book Donation",
-                "3": "Revvifi Website Design"
-            }
+                "0": {
+                    "title": "Food Flow"
+                },
+                "1": {
+                    "title": "Replenish Food Drive"
+                },
+                "2": {
+                    "title": "Interact Book Donation"
+                },
+                "3": {
+                    "title": "Revvifi Website Design"
+                }
+            },
+            "desc": "Significant involvement in community service projects, with a focus on aiding those in need and contributing to the betterment of society."
         },
         "other": {
-            "0": "NASA SEES Intern",
-            "1": "Computer Science Club President",
-            "2": "Professional Brawl Stars player"
+            "0": {
+                "achievement": "NASA SEES Intern"
+            },
+            "1": {
+                "achievement": "Computer Science Club President"
+            },
+            "2": {
+                "achievement": "Professional Brawl Stars player"
+            },
+            "desc": "Achievements in various areas, reflecting a commitment to excellence and personal growth across different domains."
         }
     })
 
@@ -134,7 +182,7 @@ const AiResumeScreen = () => {
             const response = await axios.post(apiUrl, {
                 model: 'gpt-4',
                 messages: messages,
-                max_tokens: 1024,
+                max_tokens: 2048,
                 temperature: 0.5,
             }, {
                 headers: {
@@ -245,7 +293,7 @@ const AiResumeScreen = () => {
             const response = await axios.post(apiUrl, {
                 model: 'gpt-4',
                 messages: messages,
-                max_tokens: 1024,
+                max_tokens: 2048,
                 temperature: 0.5,
             }, {
                 headers: {
