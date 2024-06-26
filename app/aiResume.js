@@ -79,7 +79,7 @@ const AiResumeScreen = () => {
 
     const scrollViewRef = React.useRef(null);
 
-    React.useEffect(() => {
+    React.useEffect(() => { //Logic for identifying the JSON and asterisk part of the ais message
         const timeoutId = setTimeout(() => {
             scrollToBottom();
             const tempData = [...data];
@@ -90,11 +90,15 @@ const AiResumeScreen = () => {
             const jsonStartIndex = jsonString.indexOf('{');
             const jsonEndIndex = jsonString.lastIndexOf('}') + 1;
             const jsonSubstring = jsonString.substring(jsonStartIndex, jsonEndIndex);
-            const resumeDone = jsonString.indexOf('***');
-            if (jsonString[resumeDone+3] == '1'){
+            const doneStartIndex = jsonString.indexOf('*');
+            const doneEndIndex = jsonString.lastIndexOf('*') + 1;
+            const doneSubstring = jsonString.substring(doneStartIndex, doneEndIndex);
+            if (doneSubstring == '***1***'){
+                console.log("Resume Done: ", doneSubstring)
                 onCanRetrieveUpdate(true)
             }else{
-                console.log(jsonString[resumeDone+3])
+                console.log("Resume In Progress: ", doneSubstring)
+                onCanRetrieveUpdate(false)
             }
 
             try {
@@ -114,9 +118,9 @@ const AiResumeScreen = () => {
             const apiKey = 'Bearer sk-proj-u8UfLlCSClGzCIZtCxepT3BlbkFJxQmQDbS9p3RKlhSAb5IB';
             const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
-            // Prepare the messages array for the chat endpoint
+            // Prepares the messages array for the chat endpoint
             const messages = [
-                { role: 'system', content: 'You are a resume creation bot for an app called Achievo. The first thing the user sends you will be data in a JSON format, containing information from their Achievo portfolio. Then, say \"I\'m the Acheivo AI Resume Generator!\", and give them these three options:(1. Auto-Generate from Achievo Porfolio 2. Edit and Create using Achievo Portfolio 3. Create from scratch) If they choose option 1, use the JSON data to create the portfolio. If they choose option 2, ask them what parts of their resume they would like to change. Each time they provide a change, update their portfolio. If they choose option three, replace all the values in the JSON with an empty string, and allow them to add each part of their resume individually. At the end of all of your messages, strictly add three asterisks, a number, and then another three asterisks. If the user\'s resume isn\'t completed yet, the number should be 0. If it is completed, or the user says they are done, the number should be 1. make a new line, and then strictly add the full JSON object, and nothing more. The asterisk number and the full JSON is crucial to add at the end of ALL of your responses, even after the user says they are done making the resume.' },
+                { role: 'system', content: 'You are a resume creation bot for an app called Achievo. The first thing the user sends you will be data in a JSON format, containing information from their Achievo portfolio. Then, say \"I\'m the Acheivo AI Resume Generator!\", and give them these three options:(1. Auto-Generate from Achievo Porfolio 2. Edit and Create using Achievo Portfolio 3. Create from scratch) If they choose option 1, use the JSON data to create the portfolio. If they choose option 2, ask them what parts of their resume they would like to change. Each time they provide a change, update their portfolio. If they choose option three, replace all the values in the JSON with an empty string, and allow them to add each part of their resume individually. At the end of all of your messages, strictly add three asterisks, a number, and then another three asterisks (ex. \'***0***\' or \'***1***\'). If the user\'s resume isn\'t completed yet, the number should be 0. If it is completed, or the user says they are done, the number should be 1. Now make a new line, and then strictly add the full JSON object, and nothing more. The asterisk number and the full JSON is crucial to add at the end of ALL of your responses, even after the user says they are done making the resume.' },
                 ...data.map(item => ({
                     role: item.type === 'user' ? 'user' : 'assistant',
                     content: item.message
@@ -153,7 +157,7 @@ const AiResumeScreen = () => {
         initializeResumeGen()
     }, []);
 
-    const flattenObject = (obj, parentKey = '', res = {}) => {
+    const flattenObject = (obj, parentKey = '', res = {}) => { //flatten for retriving the full keys
         for (let key in obj) {
             if (obj.hasOwnProperty(key)) {
                 const propName = parentKey ? `${parentKey}.${key}` : key;
@@ -180,7 +184,6 @@ const AiResumeScreen = () => {
             let value = escapeHtml(flattenedData[key]); // Function to escape HTML entities
     
             if (value !== undefined && value !== null) {
-                console.log("Replacing:", key, value);
                 updatedHTML = updatedHTML.replace(regex, value);
             } else {
                 console.warn(`Value for key '${key}' is undefined or null.`);
@@ -228,7 +231,7 @@ const AiResumeScreen = () => {
 
             // Prepare the messages array for the chat endpoint
             const messages = [
-                { role: 'system', content: 'You are a resume creation bot for an app called Achievo. The first thing the user sends you will be data in a JSON format, containing information from their Achievo portfolio. Then, say \"I\'m the Acheivo AI Resume Generator!\", and give them these three options:(1. Auto-Generate from Achievo Porfolio 2. Edit and Create using Achievo Portfolio 3. Create from scratch) If they choose option 1, use the JSON data to create the portfolio. If they choose option 2, ask them what parts of their resume they would like to change. Each time they provide a change, update their portfolio. If they choose option three, replace all the values in the JSON with an empty string, and allow them to add each part of their resume individually. At the end of all of your messages, strictly add three asterisks, a number, and then another three asterisks. If the user\'s resume isn\'t completed yet, the number should be 0. If it is completed, or the user says they are done, the number should be 1. make a new line, and then strictly add the full JSON object, and nothing more. The asterisk number and the full JSON is crucial to add at the end of ALL of your responses, even after the user says they are done making the resume.' },
+                { role: 'system', content: 'You are a resume creation bot for an app called Achievo. The first thing the user sends you will be data in a JSON format, containing information from their Achievo portfolio. Then, say \"I\'m the Acheivo AI Resume Generator!\", and give them these three options:(1. Auto-Generate from Achievo Porfolio 2. Edit and Create using Achievo Portfolio 3. Create from scratch) If they choose option 1, use the JSON data to create the portfolio. If they choose option 2, ask them what parts of their resume they would like to change. Each time they provide a change, update their portfolio. If they choose option three, replace all the values in the JSON with an empty string, and allow them to add each part of their resume individually. At the end of all of your messages, strictly add three asterisks, a number, and then another three asterisks (ex. \'***0***\' or \'***1***\'). If the user\'s resume isn\'t completed yet, the number should be 0. If it is completed, or the user says they are done, the number should be 1. make a new line, and then strictly add the full JSON object, and nothing more. The asterisk number and the full JSON is crucial to add at the end of ALL of your responses, even after the user says they are done making the resume.' },
                 ...data.map(item => ({
                     role: item.type === 'user' ? 'user' : 'assistant',
                     content: item.message
