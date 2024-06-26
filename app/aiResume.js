@@ -9,6 +9,9 @@ import * as ImageManipulator from 'react-native-image-manipulator';
 import axios from 'axios';
 import WebView from 'react-native-webview';
 import resume1 from '../assets/template1/index.json';
+import * as Print from 'expo-print';
+import * as FileSystem from 'expo-file-system';
+import * as Sharing from 'expo-sharing';
 
 const AiResumeScreen = () => {
     const navigation = useNavigation();
@@ -266,9 +269,30 @@ const AiResumeScreen = () => {
 
     const retrieveResume = () => {
         if(canRetrieve){
-
+            printToFile()
         }
     }
+
+    const printToFile = async () => {
+        try {
+          // Convert HTML to PDF
+          const { uri } = await Print.printToFileAsync({ html: displayHTML });
+          console.log('File has been saved to:', uri);
+    
+          // Save the PDF to a location accessible to the user
+          const pdfName = `${FileSystem.documentDirectory}resume.pdf`;
+          await FileSystem.moveAsync({
+            from: uri,
+            to: pdfName
+          });
+    
+          console.log('PDF moved to:', pdfName);
+    
+          await Sharing.shareAsync(pdfName);
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
   return (
     <SafeAreaView style={{
