@@ -15,7 +15,7 @@ dark: "#05020f",
 
   white: "#F3F4F8",
   black: "#FF000000",
-  lightGray: "#edf3fa",
+  lightGray: "#5e5e5e",
   bg: '#343334'
   };
   

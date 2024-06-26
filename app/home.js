@@ -1,6 +1,5 @@
 import { SafeAreaView, StyleSheet, Text, TextInput, View, Image, TouchableOpacity, ScrollView} from 'react-native'
 import styles from '../constants/styles';
-import { LinearGradient } from 'expo-linear-gradient';
 import { COLORS } from '../constants/theme';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
@@ -11,6 +10,7 @@ const HomeScreen = () => {
   var name = "Ethan Poon";
   const [orgSearch, onOrgUpdate] = React.useState('');
   const [passwordInput, onPasswordUpdate] = React.useState('');
+  
 
   return (
     <SafeAreaView style={{
@@ -42,7 +42,7 @@ const HomeScreen = () => {
         <View style={{
         }}>
         <Text style={{color: 'white', fontWeight:'bold', fontSize:30, marginBottom: 20}}>
-          Ethan Poon
+          {name}
         </Text>
         <Text style={{color: 'white', fontWeight:'bold', fontSize:15, marginBottom: 10}}>
           Major: Computer Science
@@ -190,12 +190,8 @@ const HomeScreen = () => {
     <Text style={[styles.screenHeader, {fontSize:20, fontWeight:'normal', textAlign:'center'}]}>Next Steps:</Text>
     
     <ScrollView  contentContainerStyle={{alignItems:'center', justifyContent:'flex-start', marginTop: 20}}>
-    
-    <TouchableOpacity elevation={5} style={[styles.clubBlock, {height: 75, borderColor: COLORS.white, borderWidth:2}]} onPress={() => navigation.navigate('Resume')}>
-      <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Generate Resume from Portfolio</Text>
-    </TouchableOpacity>
 
-    <TouchableOpacity elevation={5} style={[styles.clubBlock, {height: 75, borderColor: COLORS.white, borderWidth:2}]}>
+    <TouchableOpacity elevation={5} style={[styles.clubBlock, {height: 75, borderColor: COLORS.white, borderWidth:2}]} onPress={() => navigation.navigate("AiResume")}>
       <Text style={[styles.clubBlockHeader, {alignSelf:'center', textAlign: 'center', width:'100%', margin: 0, marginTop: 0}]}>Generate Resume with AI</Text>
     </TouchableOpacity>
 

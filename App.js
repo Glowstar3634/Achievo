@@ -26,6 +26,7 @@ import SciOly from './app/scioly';
 import Gallery from './app/gallery';
 import HomeNova from './app/homeNova';
 import Resume from './app/resume';
+import AiResumeScreen from './app/aiResume';
 
 const Stack = createNativeStackNavigator();
 
@@ -58,6 +59,7 @@ export default function App() {
         <Stack.Screen name="Gallery" component={Gallery}/>
         <Stack.Screen name="HomeNova" component={HomeNova}/>
         <Stack.Screen name="Resume" component={Resume}/>
+        <Stack.Screen name="AiResume" component={AiResumeScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
     

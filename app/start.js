@@ -29,7 +29,7 @@ const StartScreen = () => {
     }}>
         <Video
         source={require('../constants/videos/copy_16A8AD4E-27DA-402C-BB0B-699EEB2C552A.mov')} // Replace with your video file
-        rate={1.0}
+        rate={1}
         volume={1.0}
         isMuted={false}
         shouldPlay = {true}
