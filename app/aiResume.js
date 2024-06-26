@@ -7,10 +7,14 @@ import { Ionicons } from '@expo/vector-icons';
 import { Video } from 'expo-av';
 import * as ImageManipulator from 'react-native-image-manipulator';
 import axios from 'axios';
+import WebView from 'react-native-webview';
+import resume1 from '../assets/template1/index.json';
 
 const AiResumeScreen = () => {
     const navigation = useNavigation();
     var name = "Ethan Poon";
+    const [displayHTML, setDisplayHTML] = React.useState(resume1.body)
+    const [templateHTML, setTemplateHTML] = React.useState(resume1.body)
     const [data, setData] = React.useState([])
     const [message, onMessageUpdate] = React.useState('');
     const [jsonData, setJsonData] = React.useState({
@@ -77,7 +81,29 @@ const AiResumeScreen = () => {
 
     React.useEffect(() => {
         const timeoutId = setTimeout(() => {
-            scrollToBottom()
+            scrollToBottom();
+            const tempData = [...data];
+            const lastBotMessage = tempData.reverse().find(item => item.type === "bot");
+
+        if (lastBotMessage) {
+            const jsonString = lastBotMessage.message;
+            const jsonStartIndex = jsonString.indexOf('{');
+            const jsonEndIndex = jsonString.lastIndexOf('}') + 1;
+            const jsonSubstring = jsonString.substring(jsonStartIndex, jsonEndIndex);
+            const resumeDone = jsonString.indexOf('***');
+            if (jsonString[resumeDone+3] == '1'){
+                onCanRetrieveUpdate(true)
+            }else{
+                console.log(jsonString[resumeDone+3])
+            }
+
+            try {
+                const parsedJson = JSON.parse(jsonSubstring);
+                setJsonData(parsedJson);
+            } catch (error) {
+                console.error('Error parsing JSON:', jsonString);
+            }
+        }
           }, 1000);
           
           return () => clearTimeout(timeoutId);
@@ -90,7 +116,7 @@ const AiResumeScreen = () => {
 
             // Prepare the messages array for the chat endpoint
             const messages = [
-                { role: 'system', content: 'You are a resume creation bot for an app called Achievo. The first thing the user sends you will be data in a JSON format, containing information from their Achievo portfolio. Then, immediately give them these three options: 1. Auto-Generate from Achievo Porfolio 2. Edit and Create using Achievo Portfolio 3. Create from scratch' },
+                { role: 'system', content: 'You are a resume creation bot for an app called Achievo. The first thing the user sends you will be data in a JSON format, containing information from their Achievo portfolio. Then, say \"I\'m the Acheivo AI Resume Generator!\", and give them these three options:(1. Auto-Generate from Achievo Porfolio 2. Edit and Create using Achievo Portfolio 3. Create from scratch) If they choose option 1, use the JSON data to create the portfolio. If they choose option 2, ask them what parts of their resume they would like to change. Each time they provide a change, update their portfolio. If they choose option three, replace all the values in the JSON with an empty string, and allow them to add each part of their resume individually. At the end of all of your messages, strictly add three asterisks, a number, and then another three asterisks. If the user\'s resume isn\'t completed yet, the number should be 0. If it is completed, or the user says they are done, the number should be 1. make a new line, and then strictly add the full JSON object, and nothing more. The asterisk number and the full JSON is crucial to add at the end of ALL of your responses, even after the user says they are done making the resume.' },
                 ...data.map(item => ({
                     role: item.type === 'user' ? 'user' : 'assistant',
                     content: item.message
@@ -127,6 +153,57 @@ const AiResumeScreen = () => {
         initializeResumeGen()
     }, []);
 
+    const flattenObject = (obj, parentKey = '', res = {}) => {
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                const propName = parentKey ? `${parentKey}.${key}` : key;
+                if (typeof obj[key] === 'object' && obj[key] !== null) {
+                    flattenObject(obj[key], propName, res);
+                } else {
+                    res[propName] = obj[key];
+                }
+            }
+        }
+        return res;
+    };
+    
+    React.useEffect(() => {
+        updateDisplayHTML();
+    }, [jsonData]);
+    
+    const updateDisplayHTML = () => {
+        let updatedHTML = templateHTML;
+        const flattenedData = flattenObject(jsonData);
+        
+        Object.keys(flattenedData).forEach((key) => {
+            const regex = new RegExp(`{{${key}}}`, 'g');
+            let value = escapeHtml(flattenedData[key]); // Function to escape HTML entities
+    
+            if (value !== undefined && value !== null) {
+                console.log("Replacing:", key, value);
+                updatedHTML = updatedHTML.replace(regex, value);
+            } else {
+                console.warn(`Value for key '${key}' is undefined or null.`);
+            }
+        });
+    
+        setDisplayHTML(updatedHTML);
+    };
+    
+    const escapeHtml = (unsafe) => {
+        if (unsafe === null || unsafe === undefined) {
+            return ''; // Return empty string for undefined or null values
+        }
+    
+        return unsafe
+            .toString() // Ensure it's converted to string
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/&/g, "&amp;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    };
+
     const scrollToBottom = () => {
         scrollViewRef.current.scrollToEnd({ animated: true });
     };
@@ -151,7 +228,7 @@ const AiResumeScreen = () => {
 
             // Prepare the messages array for the chat endpoint
             const messages = [
-                { role: 'system', content: 'You are a resume creation bot for an app called Achievo. The first thing the user sends you will be data in a JSON format, containing information from their Achievo portfolio. Then, immediately give them these three options: 1. Auto-Generate from Achievo Porfolio 2. Edit and Create using Achievo Portfolio 3. Create from scratch' },
+                { role: 'system', content: 'You are a resume creation bot for an app called Achievo. The first thing the user sends you will be data in a JSON format, containing information from their Achievo portfolio. Then, say \"I\'m the Acheivo AI Resume Generator!\", and give them these three options:(1. Auto-Generate from Achievo Porfolio 2. Edit and Create using Achievo Portfolio 3. Create from scratch) If they choose option 1, use the JSON data to create the portfolio. If they choose option 2, ask them what parts of their resume they would like to change. Each time they provide a change, update their portfolio. If they choose option three, replace all the values in the JSON with an empty string, and allow them to add each part of their resume individually. At the end of all of your messages, strictly add three asterisks, a number, and then another three asterisks. If the user\'s resume isn\'t completed yet, the number should be 0. If it is completed, or the user says they are done, the number should be 1. make a new line, and then strictly add the full JSON object, and nothing more. The asterisk number and the full JSON is crucial to add at the end of ALL of your responses, even after the user says they are done making the resume.' },
                 ...data.map(item => ({
                     role: item.type === 'user' ? 'user' : 'assistant',
                     content: item.message
@@ -272,6 +349,7 @@ const AiResumeScreen = () => {
             marginBottom: 20,
             marginTop:20
             }}>
+            <WebView source={{ html: displayHTML }}/>
 
         </View>
 
@@ -284,45 +362,60 @@ const AiResumeScreen = () => {
 
             }}>
         <ScrollView  ref={scrollViewRef} contentContainerStyle={{alignItems:'center', justifyContent:'flex-end'}}>
-        {data.map((reply, index) => ((<View style={{
+        {data.map((reply, index) => (
+    <View
+        style={{
             flexDirection: 'row',
             width: "80%",
-            alignItems: 'flex-start',
-            justifyContent: (reply.type == "bot" ? "flex-start" : "flex-end"),
-            alignSelf: (reply.type == "bot" ? "flex-start" : "flex-end"),
-            marginBottom:10
-        }} key={index}>
-        {(reply.type == "bot") && (<View style={{
-            alignItems:'center',
-            flex:1
-        }}>
-            <Text style={{
-                color: (reply.type == "bot" ? COLORS.tertiary : COLORS.secondary),
-                fontSize: 12,
-                fontWeight: 'bold'
-            }}>{(reply.type == "bot" ? "Achievo" : "You")}</Text>
-        </View>)}
-        <View style={{
-            alignItems:'flex-start',
-            flex: 4,
-        }}>
-            <Text style={{
-                color: (reply.type == "bot" ? COLORS.tertLight : COLORS.secoLight),
-                fontSize: 12
-            }}>{(reply.message)}</Text>
+            alignItems: reply.type === "bot" ? 'flex-start' : 'flex-end',
+            justifyContent: reply.type === "bot" ? 'flex-start' : 'flex-end',
+            alignSelf: reply.type === "bot" ? 'flex-start' : 'flex-end',
+            marginBottom: 10
+        }}
+        key={index}
+    >
+        {reply.type === "bot" && (
+            <View style={{ alignItems: 'center', flex: 1 }}>
+                <Text
+                    style={{
+                        color: COLORS.tertiary,
+                        fontSize: 12,
+                        fontWeight: 'bold'
+                    }}
+                >
+                    Achievo
+                </Text>
+            </View>
+        )}
+        <View style={{ alignItems: 'flex-start', flex: 4 }}>
+            <Text
+                style={{
+                    color: reply.type === "bot" ? COLORS.tertLight : COLORS.secoLight,
+                    fontSize: 12
+                }}
+            >
+                {reply.type === "bot" ? reply.message.substring(0, reply.message.indexOf('***')) : reply.message}
+            </Text>
         </View>
-        {(reply.type != "bot") && (<View style={{
-            alignItems:'center',
-            flex:1
-        }}>
-            <Text style={{
-                color: (reply.type == "bot" ? COLORS.tertiary : COLORS.secondary),
-                fontSize: 12,
-                fontWeight: 'bold'
-            }}>{(reply.type == "bot" ? "Achievo" : "You")}</Text>
-        </View>)}
-
-        </View>)))}
+        {reply.type !== "bot" && (
+            <View style={{ alignItems: 'center', flex: 1 }}>
+                <Text
+                    style={{
+                        color: COLORS.secondary,
+                        fontSize: 12,
+                        fontWeight: 'bold'
+                    }}
+                >
+                    You
+                </Text>
+            </View>
+        )}
+    </View>
+))}
+        {(!canSend) && (<Image
+            style={{ height:100, aspectRatio: 1, alignSelf:"center", opacity:1, margin: 10}}
+            source={require('../constants/images/UIcons/gradient-5812.gif')}
+        />)}
 
         </ScrollView>
         </View>
